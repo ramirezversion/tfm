@@ -9994,6 +9994,13 @@ a.text-dark:focus {
   }
 }
 
+#footer {
+  margin-top: 30px;
+  padding: 20px;
+  color: #fff;
+  background: #333;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
