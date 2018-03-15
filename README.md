@@ -1,7 +1,7 @@
 # Sobreviviendo a Laravel
 
 ```
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get upgrade
 
 apt-get update
@@ -23,4 +23,3 @@ npm install
 npm run dev
 npm run watch
 ````
-
