@@ -10001,6 +10001,14 @@ a.text-dark:focus {
   background: #333;
 }
 
+.container {
+  padding: 25px 0 0 0;
+}
+
+.list-group {
+  padding: 10px 0 0 0;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

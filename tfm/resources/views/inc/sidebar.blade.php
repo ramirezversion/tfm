@@ -1,5 +1,5 @@
 @section('sidebar')
-    <div class="well">
+    <div class="card card-body bg-ligt">
         <h3>Sidebar</h3>
         This is the sidebar
     </div>
