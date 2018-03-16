@@ -9,12 +9,12 @@
 
       <div class="form-group">
         {{Form::label('username', 'Username', ['class' => 'sr-only'])}}
-        {{Form::text('username', '', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Username', 'required', 'autofocus'])}}
+        {{Form::text('username', '', ['class' => 'form-control', 'placeholder' => 'Username', 'required', 'autofocus'])}}
       </div>
 
       <div class="form-group">
         {{Form::label('password', 'Password', ['class' => 'sr-only'])}}
-        {{Form::text('password', '', ['type' => 'password', 'class' => 'form-control', 'placeholder' => 'Password', 'required'])}}
+        {{Form::password('password', '', [class' => 'form-control', 'placeholder' => 'Password', 'required'])}}
       </div>
 
       <div>
