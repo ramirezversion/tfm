@@ -1,1 +1,3 @@
-@extends('layouts.loginapp')
+@section('content')
+  @extends('layouts.loginapp')
+@endsection

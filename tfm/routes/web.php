@@ -23,4 +23,4 @@ Route::post('/contact/submit', 'MessagesController@submit');
 
 Route::get('/login', 'PagesController@showLogin');
 
-Route::post('/login', 'PagesController@doLogin');
+Route::post('/login', 'LoginAppController@submit');
