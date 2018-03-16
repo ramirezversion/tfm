@@ -8,17 +8,17 @@
     {!! Form::open(['url' => 'login']) !!}
 
       <div class="form-group">
-        {{Form::label('username', 'Username', ['for' => 'inputEmail', 'class' => 'sr-only'])}}
-        {{Form::text('username', '', ['class' => 'form-control', 'placeholder' => 'Username', 'required', 'autofocus'])}}
+        {{Form::label('username', 'Username', ['class' => 'sr-only'])}}
+        {{Form::text('username', '', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Username', 'required', 'autofocus'])}}
       </div>
 
       <div class="form-group">
-        {{Form::label('password', 'Password', ['for' => 'inputPassword', 'class' => 'sr-only'])}}
-        {{Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'Password', 'required'])}}
+        {{Form::label('password', 'Password', ['class' => 'sr-only'])}}
+        {{Form::text('password', '', ['type' => 'password', 'class' => 'form-control', 'placeholder' => 'Password', 'required'])}}
       </div>
 
       <div>
-        {{Form::submit('Log in', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Log in', ['class' => 'btn btn-lg btn-primary btn-lock'])}}
       </div>
 
 
