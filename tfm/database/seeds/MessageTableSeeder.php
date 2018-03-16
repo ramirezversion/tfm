@@ -9,19 +9,12 @@ class MessageTableSeeder extends Seeder{
 
     DB::table('messages')->delete();
 
-    DB::table('messages')->insert(
-      [
-        'name' => 'hola',
-        'email' => 'holamail',
-        'message' => 'holamessage'
-      ],
+    $mens =[
+      ['name' => 'hola', 'email' =>'holamail', 'message' => 'holamessage'],
+      ['name' => 'adios', 'email' =>'adiosmail', 'message' => 'adiosmessage'],
+    ];
 
-      [
-        'name' => 'adios',
-        'email' => 'adiosmail',
-        'message' => 'adiosmessage'
-      ]
-    );
+    DB::table('messages')->insert($mens);
 
   }
 

@@ -9,19 +9,12 @@ class UserTableSeeder extends Seeder{
 
     DB::table('users')->delete();
 
-    DB::table('users')->insert(
-      [
-        'username' => 'admin',
-        'password' => bcrypt('admin'),
-        'super' => '1',
-      ],
+    $users =[
+      ['username' => 'admin', 'password' => bcrypt('admin'), 'super' => '1'],
+      ['username' => 'readonly', 'password' => bcrypt('readonly'), 'super' => '0'],
+    ];
 
-      [
-        'username' => 'readonly',
-        'password' => bcrypt('readonly'),
-        'super' => '0',
-      ]
-    );
+    DB::table('users')->insert($users);
 
   }
 
