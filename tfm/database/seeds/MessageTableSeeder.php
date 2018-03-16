@@ -1,6 +1,6 @@
 <?php
 
-class UserMessageSeeder extends Seeder{
+class MessageTableSeeder extends Seeder{
 
   public function run(){
 
