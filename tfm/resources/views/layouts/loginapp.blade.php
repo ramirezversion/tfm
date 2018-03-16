@@ -9,11 +9,7 @@
         @include('inc.navbarlogin')
 
         <div class="container" "text-center">
-            <div class="row">
-                <div class="col-md-8 col-lg-8">
-                  @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </div>
         <footer id="footer" class="text-center">
           <p>Copyright 2018 &copy; Acme</p>
