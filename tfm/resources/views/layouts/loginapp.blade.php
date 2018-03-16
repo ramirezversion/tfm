@@ -10,19 +10,7 @@
 
         <div class="text-center">
           <div class="container">
-              <div class="row">
-                  <div class="col-md-3 col-lg-3">
-                    <p>
-                    </p>
-                  </div>
-                  <div class="col-md-6 col-lg-6">
-                    @yield('content')
-                  </div>
-                  <div class="col-md-3 col-lg-3">
-                    <p>
-                    </p>
-                  </div>
-              </div>
+            @yield('content')
           </div>
         </div>
         <footer id="footer" class="text-center">
