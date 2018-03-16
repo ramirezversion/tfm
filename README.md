@@ -80,5 +80,3 @@ Con el `-m` se crea también el migrate. Rellenas el campo migrations con lo que
 ```
 php artisan migrate
 ```
-
-Para solucionar el bug que da de key was too long
