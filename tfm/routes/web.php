@@ -20,3 +20,7 @@ Route::get('/contact', 'PagesController@getContact');
 Route::get('/messages', 'MessagesController@getMessages');
 
 Route::post('/contact/submit', 'MessagesController@submit');
+
+Route::get('/login', 'PagesController@showLogin');
+
+Route::post('/login', 'PagesController@doLogin');

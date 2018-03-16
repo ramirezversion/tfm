@@ -80,3 +80,7 @@ Con el `-m` se crea también el migrate. Rellenas el campo migrations con lo que
 ```
 php artisan migrate
 ```
+
+```
+php artisan migrate:refresh --seed
+```
