@@ -9,7 +9,7 @@
         @include('inc.navbarlogin')
 
         <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="row d-flex align-items-center h-100">
                 <div class="col-md-8 col-lg-8">
                   @yield('content')
                 </div>

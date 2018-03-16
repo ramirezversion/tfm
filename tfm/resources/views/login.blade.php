@@ -1,7 +1,6 @@
 @extends('layouts.loginapp')
 
 @section('content')
-    <h1>Log In</h1>
 
     <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
