@@ -14,7 +14,7 @@
 
       <div class="form-group">
         {{Form::label('password', 'Password', ['class' => 'sr-only'])}}
-        {{Form::password('password', '', [class' => 'form-control', 'required'])}}
+        {{Form::password('password', ['class' => 'form-control', 'required', 'autocomplete' => 'off'])}}
       </div>
 
       <div>
