@@ -13,13 +13,13 @@ class UserTableSeeder extends Seeder{
       [
         'username' => 'admin',
         'password' => bcrypt('admin'),
-        'super' => 'true',
+        'super' => '1',
       ],
 
       [
         'username' => 'readonly',
         'password' => bcrypt('readonly'),
-        'super' => 'false',
+        'super' => '0',
       ]
     );
 
