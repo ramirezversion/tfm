@@ -7,5 +7,4 @@
 
 @section('sidebar')
     @parent
-    <p>This is append to the sidebar</p>
 @endsection
