@@ -7,11 +7,10 @@
     </head>
     <body>
         @include('inc.navbarlogin')
-
         <div class="text-center">
           <div class="container">
-            @include('inc.messages')
             @yield('content')
+            @include('inc.messages')
           </div>
         </div>
         <footer id="footer" class="text-center">

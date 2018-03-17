@@ -30,8 +30,6 @@
               </div>
             </li>
           </ul>
-
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           {{Form::submit('Logout', ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
         </div>
 
