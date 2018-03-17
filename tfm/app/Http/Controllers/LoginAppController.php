@@ -33,8 +33,7 @@ class LoginAppController extends Controller
     } else {
 
         // validation not successful, send back to form
-        //return redirect('/login')->with('fail', 'Log in Failed!');
-        return back()->withInput();
+        return back()->withErrors(['msg', 'Login fail']);
     }
   }
 }
