@@ -27,7 +27,7 @@ class LoginAppController extends Controller
           // return Redirect::to('secure');
           // for now we'll just echo success (even though echoing in a controller is bad
           echo 'SUCCESS'
-          return redirect('/')->with('Log in Succesfull!', $userdata->username);
+          return redirect('/')->with('success', 'Log in Succesfull!');
 
       } else {
 
