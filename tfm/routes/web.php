@@ -13,7 +13,7 @@
 
 Route::get('/', 'PagesController@showLogin');
 
-Route::get('/login', 'PagesController@showLogin')->name('login');
+Route::get('/login', ['as' => 'login', 'uses' => 'PagesController@showLogin']);
 
 Route::post('/login', 'LoginAppController@handleLogin');
 
