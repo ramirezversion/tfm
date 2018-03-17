@@ -11,15 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@getHome');
-
-Route::get('/about', 'PagesController@getAbout');
-
-Route::get('/contact', 'PagesController@getContact');
-
-Route::get('/messages', 'MessagesController@getMessages');
-
-Route::post('/contact/submit', 'MessagesController@submit');
+Route::get('/', 'PagesController@showLogin');
 
 Route::get('/login', 'PagesController@showLogin');
 
@@ -28,3 +20,5 @@ Route::post('/login', 'LoginAppController@handleLogin');
 Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersController@home']);
 
 Route::post('/logout', ['middleware' => 'auth', 'as' => 'logout', 'uses' => 'LoginAppController@logout']);
+
+Route::get('/about', ['middleware' => 'auth', 'as' => 'about', 'uses' => 'PagesController@getAbout');
