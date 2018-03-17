@@ -22,7 +22,7 @@
       {!! Form::open(['url' => 'logout']) !!}
 
         <div class="form-inline my-2 my-lg-0">
-          {{Form::submit('Logout {{Auth::user()->username}}' , ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
+          {{Form::submit('Logout '.{{Auth::user()->username}}, ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
         </div>
 
       {!! Form::close() !!}
