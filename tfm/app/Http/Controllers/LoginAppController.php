@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-use App\UserData;
+use App\User;
 
 class LoginAppController extends Controller
 {
@@ -15,9 +15,10 @@ class LoginAppController extends Controller
       'password' => 'required'
     ]);
 
-    $userdata = new UserData;
-    $userdata->username = $request->input('username');
-    $userdata->password = $request->input('password');
+    $userdata = new User;
+    //$userdata->username = $request->input('username');
+    //$userdata->password = $request->input('password');
+    $userdata = $request->only('username', 'password');
 
     // Redirect
     // attempt to do the login
