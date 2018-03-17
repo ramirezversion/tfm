@@ -26,7 +26,7 @@ class LoginAppController extends Controller{
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        $loginregister::submitLoginRegister();
+        $loginregister->submitLoginRegister();
         return redirect()->intended('home');
 
     } else {
