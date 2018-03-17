@@ -28,7 +28,7 @@ class LoginAppController extends Controller{
 
     } else {
         // validation not successful, send back to form and show errors
-        return back()->withErrors(['Login fail. Check username and password']);
+        return back()->withErrors(['Login fail. Please, check your username and password.']);
     }
 
   }
