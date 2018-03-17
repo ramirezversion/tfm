@@ -9,7 +9,7 @@ use App\User;
 
 class LoginAppController extends Controller
 {
-    public function submit(Request $request){
+    public function handleLogin(Request $request){
       $this->validate($request, [
         'username' => 'required',
         'password' => 'required'
@@ -26,7 +26,7 @@ class LoginAppController extends Controller
           // redirect them to the secure section or whatever
           // return Redirect::to('secure');
           // for now we'll just echo success (even though echoing in a controller is bad
-          echo 'SUCCESS';
+          return "is logged on";
           return redirect('/')->with('success', 'Log in Succesfull!'. $userdata->username);
 
       } else {
