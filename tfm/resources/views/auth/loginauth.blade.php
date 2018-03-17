@@ -18,7 +18,7 @@
       </div>
 
       <div>
-        {{Form::submit('Log in', ['class' => 'btn btn-lg btn-primary btn-lock'])}}
+        {{Form::submit('Login', ['class' => 'btn btn-lg btn-primary btn-lock'])}}
       </div>
 
     {!! Form::close() !!}

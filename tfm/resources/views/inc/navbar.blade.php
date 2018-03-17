@@ -16,5 +16,28 @@
         <a class="nav-link" href="/contact">Contact</a>
       </li>
     </ul>
+
+    @if(Auth::check())
+
+      {!! Form::open(['url' => 'logout']) !!}
+
+        <div class="form-inline my-2 my-lg-0">
+          {{Form::submit('Logout', ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
+        </div>
+
+      {!! Form::close() !!}
+
+    @else
+
+      {!! Form::open(['url' => 'login']) !!}
+
+        <div class="form-inline my-2 my-lg-0">
+          {{Form::submit('Login', ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
+        </div>
+
+      {!! Form::close() !!}
+
+    @endif
+
   </div>
 </nav>

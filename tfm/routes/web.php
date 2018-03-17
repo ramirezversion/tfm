@@ -26,3 +26,5 @@ Route::get('/login', 'PagesController@showLogin');
 Route::post('/login', 'LoginAppController@handleLogin');
 
 Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersController@home']);
+
+Route::post('/logout', ['middleware' => 'auth', 'as' => 'logout', 'uses' => 'LoginAppController@logout']);
