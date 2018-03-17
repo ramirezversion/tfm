@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\LoginRegister;
 
 class LoginAppController extends Controller{
 
@@ -19,11 +20,13 @@ class LoginAppController extends Controller{
     $userdata = new User;
     $userdata = $request->only('username', 'password');
 
+    $loginregister = new LoginRegister;
+
     // Redirect
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        //return "is logged on";
+        $loginregister::submitLoginRegister();
         return redirect()->intended('home');
 
     } else {
