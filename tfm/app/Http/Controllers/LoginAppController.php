@@ -16,23 +16,17 @@ class LoginAppController extends Controller
     ]);
 
     $userdata = new User;
-    //$userdata->username = $request->input('username');
-    //$userdata->password = $request->input('password');
     $userdata = $request->only('username', 'password');
 
     // Redirect
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        // redirect them to the secure section or whatever
-        // return Redirect::to('secure');
-        // for now we'll just echo success (even though echoing in a controller is bad
         return "is logged on";
         //return redirect('/')->with('success', 'Log in Succesfull!'. $userdata->username);
 
     } else {
-
-        // validation not successful, send back to form
+        // validation not successful, send back to form and show errors
         return back()->withErrors(['Login fail. Check username and password']);
     }
   }
