@@ -6,8 +6,8 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item {{Request::is('/') ? 'active' : ''}}">
-        <a class="nav-link" href="/">Home</a>
+      <li class="nav-item {{Request::is('home') ? 'active' : ''}}">
+        <a class="nav-link" href="/home">Home</a>
       </li>
       <li class="nav-item {{Request::is('about') ? 'active' : ''}}">
         <a class="nav-link" href="/about">About</a>
@@ -22,7 +22,17 @@
       {!! Form::open(['url' => 'logout']) !!}
 
         <div class="form-inline my-2 my-lg-0">
-          {{Form::submit('Logout '.{{Auth::user()->username}}, ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
+
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <div class="nav-link">
+                User: {{Auth::user()->username}}
+              </div>
+            </li>
+          </ul>
+
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          {{Form::submit('Logout', ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
         </div>
 
       {!! Form::close() !!}
