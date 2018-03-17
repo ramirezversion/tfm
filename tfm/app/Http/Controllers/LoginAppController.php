@@ -22,8 +22,8 @@ class LoginAppController extends Controller
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        return "is logged on";
-        //return redirect('/')->with('success', 'Log in Succesfull!'. $userdata->username);
+        //return "is logged on";
+        return redirect()->intended('home');
 
     } else {
         // validation not successful, send back to form and show errors

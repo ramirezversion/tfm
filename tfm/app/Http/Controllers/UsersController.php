@@ -81,4 +81,8 @@ class UsersController extends Controller
     {
         //
     }
+
+    public function home(){
+      return view('users.home');
+    }
 }
