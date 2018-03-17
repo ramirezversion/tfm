@@ -25,9 +25,9 @@
 
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <!-- <div class="nav-link"> -->
+              <div class="nav-link active">
                 User: {{Auth::user()->username}}
-              <!-- </div> -->
+              </div>
             </li>
           </ul>
           {{Form::submit('Logout', ['class' => 'btn btn-outline-success my-2 my-sm-0'])}}
