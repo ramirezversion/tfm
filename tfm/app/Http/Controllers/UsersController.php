@@ -86,14 +86,7 @@ class UsersController extends Controller
     }
 
     public function getHome(){
-
-      if(Auth::check()){
-        return view('users.home');
-      } else {
-        //return view('auth.loginauth')->withErrors(['Please, login first before access the content.']);
-        return 12345;
-      }
-
+      return view('users.home');
     }
 
     public function getAbout(){
