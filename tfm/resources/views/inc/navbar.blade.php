@@ -22,7 +22,6 @@
       {!! Form::open(['url' => 'logout']) !!}
 
         <div class="form-inline my-2 my-lg-0">
-
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <div class="nav-link active">
