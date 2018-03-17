@@ -30,13 +30,13 @@ class LoginAppController extends Controller{
         // validation not successful, send back to form and show errors
         return back()->withErrors(['Login fail. Check username and password']);
     }
-    
+
   }
 
   public function logout(){
 
     Auth::logout();
-    return redirect()->route('login');
+    return redirect()->route('/login');
 
   }
 
