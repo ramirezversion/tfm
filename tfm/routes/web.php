@@ -13,6 +13,7 @@
 
 Route::get('/', 'PagesController@showLogin');
 
+//Añadir 'as' => 'login' en la ruta de login para capturar la excepcion de unathenticated request y que redirija bien a la ventana de login
 Route::get('/login', ['as' => 'login', 'uses' => 'PagesController@showLogin']);
 
 Route::post('/login', 'LoginAppController@handleLogin');
