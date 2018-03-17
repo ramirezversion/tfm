@@ -90,7 +90,8 @@ class UsersController extends Controller
       if(Auth::check()){
         return view('users.home');
       } else {
-        return view('auth.loginauth')->withErrors(['Please, login first before access the content.']);
+        //return view('auth.loginauth')->withErrors(['Please, login first before access the content.']);
+        return 12345;
       }
 
     }
