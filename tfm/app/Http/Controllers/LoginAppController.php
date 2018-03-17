@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class LoginAppController extends Controller
 {
-    //
+    return view('auth.loginauth');
 }
