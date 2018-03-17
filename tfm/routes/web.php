@@ -21,4 +21,4 @@ Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersCon
 
 Route::post('/logout', ['middleware' => 'auth', 'as' => 'logout', 'uses' => 'LoginAppController@logout']);
 
-Route::get('/about', ['middleware' => 'auth', 'as' => 'about', 'uses' => 'PagesController@getAbout');
+Route::get('/about', ['middleware' => 'auth', 'as' => 'about', 'uses' => 'PagesController@getAbout']);
