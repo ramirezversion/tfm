@@ -13,7 +13,13 @@ class CreateLoginRegisters extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('loginRegisters', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('username');
+          $table->date('date');
+          $table->time('time');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateLoginRegisters extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('loginRegisters');
     }
 }
