@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use App\UserData;
 
@@ -25,7 +27,8 @@ class LoginAppController extends Controller
           // redirect them to the secure section or whatever
           // return Redirect::to('secure');
           // for now we'll just echo success (even though echoing in a controller is bad
-          return redirect('/')->with('success', 'Log in Succesfull!');
+          echo 'SUCCESS'
+          return redirect('/')->with('success', 'Log in Succesfull!', $userdata->username);
 
       } else {
 
