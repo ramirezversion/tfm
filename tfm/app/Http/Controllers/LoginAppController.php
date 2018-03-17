@@ -20,13 +20,11 @@ class LoginAppController extends Controller{
     $userdata = new User;
     $userdata = $request->only('username', 'password');
 
-    $loginregister = new LoginRegister;
-
     // Redirect
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        $loginregister->submitLoginRegister();
+        LoginRegister::submitLoginRegister();
         return redirect()->intended('home');
 
     } else {
