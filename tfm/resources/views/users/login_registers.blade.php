@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Messages</h1>
+    <h1>Logins log</h1>
     @if(count($loginEntries) > 0)
       @foreach($loginEntries as $loginregister)
         <ul class="list-group">
@@ -12,9 +12,4 @@
         </ul>
       @endforeach
     @endif
-@endsection
-
-@section('sidebar')
-    @parent
-    <p>This is append to the sidebar</p>
 @endsection

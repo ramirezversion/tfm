@@ -13,7 +13,7 @@
         <a class="nav-link" href="/about">About</a>
       </li>
       <li class="nav-item {{Request::is('/loginregister') ? 'active' : ''}}">
-        <a class="nav-link" href="/loginregister">Login log</a>
+        <a class="nav-link" href="/loginregister">Logins log</a>
       </li>
     </ul>
 
