@@ -24,4 +24,4 @@ Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersCon
 
 Route::get('/about', ['middleware' => 'auth', 'as' => 'about', 'uses' => 'UsersController@getAbout']);
 
-Route::get('/loginregister', ['middleware' => 'auth', 'as' => 'loginregister', 'uses' => 'UsersController@getLoginRegister']);
+Route::get('/loginregister', ['middleware' => 'auth', 'as' => 'loginregister', 'uses' => 'UsersController@getLoginRegisters']);
