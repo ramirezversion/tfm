@@ -36,9 +36,9 @@ class LoginAppController extends Controller{
 
         // validation fail
         //$username = Auth::user()->username;
-        // add login register to database
+        // add login register fail to database
         $loginEntry = new LoginRegister;
-        $loginEntry->submitLoginRegister($userdata->username, 'Login failed');
+        $loginEntry->submitLoginRegister($request->only('username'), 'Login failed');
 
         // validation not successful, send back to form and show errors
         return back()->withErrors(['Login fail. Please, check your username and password.']);
