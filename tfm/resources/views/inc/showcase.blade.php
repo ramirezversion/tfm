@@ -1,4 +1,4 @@
-<div class="jumbotron container-fluid text-center">
+<div class="jumbotron-fluid text-center">
   <div class="container">
     <h3>Welcome to our site</h3>
     <p class="lead">Aquí estamos Hoyvin Mayvin!</p>
