@@ -20,7 +20,7 @@
                 @yield('content')
               </div>
               <div class="col-md-4 col-lg-4">
-                  @include('inc.sidebar')
+                @include('inc.sidebar')
               </div>
 
             </div>
