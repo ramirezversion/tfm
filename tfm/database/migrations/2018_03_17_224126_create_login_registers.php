@@ -18,6 +18,7 @@ class CreateLoginRegisters extends Migration
           $table->string('username');
           $table->date('date');
           $table->time('time');
+          $table->mediumText('action');
           $table->timestamps();
       });
     }

@@ -25,9 +25,11 @@ class LoginAppController extends Controller{
     if (Auth::attempt($userdata)){
         // validation successful!
         $username = Auth::user()->username;
-        $loginEntry = new LoginRegister;
 
-        $loginEntry->submitLoginRegister($username);
+        // add login register to database
+        $loginEntry = new LoginRegister;
+        $loginEntry->submitLoginRegister($username, 'Login successful');
+
         return redirect()->intended('home');
 
     } else {
@@ -39,11 +41,16 @@ class LoginAppController extends Controller{
 
   public function logout(){
 
+    $username = Auth::user()->username;
+
+    // add login register to database
+    $loginEntry = new LoginRegister;
+    $loginEntry->submitLoginRegister($username, 'Logout successful');
+
     Auth::logout();
     //return redirect()->route('/login');
     return redirect('/login')->with('success', 'Logout success!');
 
   }
-
 
 }
