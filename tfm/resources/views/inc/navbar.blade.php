@@ -12,8 +12,8 @@
       <li class="nav-item {{Request::is('about') ? 'active' : ''}}">
         <a class="nav-link" href="/about">About</a>
       </li>
-      <li class="nav-item {{Request::is('contact') ? 'active' : ''}}">
-        <a class="nav-link" href="/contact">Contact</a>
+      <li class="nav-item {{Request::is('/loginregister') ? 'active' : ''}}">
+        <a class="nav-link" href="/loginregister">Login log</a>
       </li>
     </ul>
 
