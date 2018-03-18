@@ -18,12 +18,17 @@
         </thead>
         <tbody>
           @foreach($loginEntries as $loginregister)
-            <tr>
+
+            @if($loginregister->action == 'Login failed')
+              <tr class="table-warning">
+            @else
+              <tr>
+            @endif
                 <th scope="row">{{$loginregister->username}}</th>
                 <td>{{$loginregister->date}}</td>
                 <td>{{$loginregister->time}}</td>
                 <td>{{$loginregister->action}}</td>
-            </tr>
+              </tr>
           @endforeach
         </tbody>
       </table>
