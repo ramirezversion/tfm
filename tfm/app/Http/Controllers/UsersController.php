@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\LoginRegister;
 
 class UsersController extends Controller
 {
@@ -86,15 +87,22 @@ class UsersController extends Controller
     }
 
     public function getHome(){
+
       return view('users.home');
+
     }
 
     public function getAbout(){
+
       return view('users.about');
+
     }
 
-    public function getLoginRegister(){
-      return view('users.login_registers');
+    public function getLoginRegisters(){
+
+      $loginEntries = LoginRegister::all();
+      return view('users.login_registers')->with('loginEntries', $loginEntries);
+
     }
 
 }
