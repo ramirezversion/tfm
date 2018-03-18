@@ -9,12 +9,12 @@
         @include('inc.navbar')
 
         <div class="container">
+
+          @if(Request::is('/home'))
+            @include('inc.showcase')
+          @endif
+
             <div class="row">
-
-              @if(Request::is('/home'))
-                @include('inc.showcase')
-              @endif
-
               <div class="col-md-8 col-lg-8">
                 @include('inc.messages')
                 @yield('content')
