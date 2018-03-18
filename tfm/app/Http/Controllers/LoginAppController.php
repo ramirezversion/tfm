@@ -19,7 +19,7 @@ class LoginAppController extends Controller{
 
     $userdata = new User;
     $userdata = $request->only('username', 'password');
-    $username = $userdata->username;
+    $username = Auth::user()->username;
     $loginEntry = new LoginRegister;
 
     // Redirect
