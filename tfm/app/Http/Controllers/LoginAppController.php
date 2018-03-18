@@ -20,15 +20,14 @@ class LoginAppController extends Controller{
     $userdata = new User;
     $userdata = $request->only('username', 'password');
 
-    //$username = Auth::user()->username;
     $username = $request->input('username');
+    $loginEntry = new LoginRegister;
 
     // attempt to do the login
     if (Auth::attempt($userdata)){
 
         // validation successful!
         // add login register to database
-        $loginEntry = new LoginRegister;
         $loginEntry->submitLoginRegister($username, 'Login successful');
 
         return redirect()->intended('home');
@@ -36,9 +35,7 @@ class LoginAppController extends Controller{
     } else {
 
         // validation fail
-        //$username = Auth::user()->username;
         // add login register fail to database
-        $loginEntry = new LoginRegister;
         $loginEntry->submitLoginRegister($username, 'Login failed');
 
         // validation not successful, send back to form and show errors
