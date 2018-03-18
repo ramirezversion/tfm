@@ -23,7 +23,7 @@
                 <div class="col-md-4 col-lg-4">
                     @include('inc.sidebar')
                 </div>
-              @elseif
+              @else
                 <div class="col-md-8 col-lg-8">
                   @include('inc.messages')
                   @yield('content')
