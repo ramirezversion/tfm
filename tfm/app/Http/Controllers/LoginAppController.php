@@ -1,6 +1,5 @@
 <?php
 
-namespace App;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -21,11 +20,13 @@ class LoginAppController extends Controller{
     $userdata = new User;
     $userdata = $request->only('username', 'password');
 
+    $loginEntry = new LoginRegister;
+
     // Redirect
     // attempt to do the login
     if (Auth::attempt($userdata)){
         // validation successful!
-        LoginRegister::submitLoginRegister($userdata);
+        $loginEntry->submitLoginRegister($userdata);
         return redirect()->intended('home');
 
     } else {
