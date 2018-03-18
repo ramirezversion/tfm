@@ -10,6 +10,20 @@
 
         <div class="container">
             <div class="row">
+
+              @if(Request::is('/home'))
+                @include('inc.showcase')
+              @endif
+
+              @if(Request::is('/loginregister'))
+                <div class="col-md-12 col-lg-12">
+                  @include('inc.messages')
+                  @yield('content')
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    @include('inc.sidebar')
+                </div>
+              @elseif
                 <div class="col-md-8 col-lg-8">
                   @include('inc.messages')
                   @yield('content')
@@ -17,6 +31,8 @@
                 <div class="col-md-4 col-lg-4">
                     @include('inc.sidebar')
                 </div>
+              @endif
+
             </div>
         </div>
         <footer id="footer" class="text-center">
