@@ -13,7 +13,7 @@ class CreateLoginRegisters extends Migration
      */
     public function up()
     {
-      Schema::create('loginRegisters', function (Blueprint $table) {
+      Schema::create('login_registers', function (Blueprint $table) {
           $table->increments('id');
           $table->string('username');
           $table->date('date');
@@ -29,6 +29,6 @@ class CreateLoginRegisters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loginRegisters');
+        Schema::dropIfExists('login_registers');
     }
 }
