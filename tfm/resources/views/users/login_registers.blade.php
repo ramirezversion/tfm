@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.loginlog')
 
 @section('content')
     <h1>Logins log</h1>
