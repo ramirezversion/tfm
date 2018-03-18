@@ -32,7 +32,7 @@ class LoginRegister extends Model
   public function getLoginRegisters(){
 
     $loginEntries = LoginRegister::all();
-    return view('users.loginRegisters')->with('messages', $loginEntries);
+    return view('users.login_registers')->with('messages', $loginEntries);
 
   }
 

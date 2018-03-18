@@ -93,5 +93,8 @@ class UsersController extends Controller
       return view('users.about');
     }
 
+    public function getLoginRegister(){
+      return view('users.login_registers');
+    }
 
 }
