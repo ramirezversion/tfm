@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use DateTime;
 
 class LoginRegister extends Model
 {
@@ -22,7 +23,7 @@ class LoginRegister extends Model
 
     // Save message
     $loginEntry->save();
-    
+
     return;
 
   }
