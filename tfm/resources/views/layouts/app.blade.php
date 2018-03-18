@@ -15,23 +15,13 @@
                 @include('inc.showcase')
               @endif
 
-              @if(Request::is('/loginregister'))
-                <div class="col-md-12 col-lg-12">
-                  @include('inc.messages')
-                  @yield('content')
-                </div>
-                <div class="col-md-4 col-lg-4">
-                    @include('inc.sidebar')
-                </div>
-              @else
-                <div class="col-md-8 col-lg-8">
-                  @include('inc.messages')
-                  @yield('content')
-                </div>
-                <div class="col-md-4 col-lg-4">
-                    @include('inc.sidebar')
-                </div>
-              @endif
+              <div class="col-md-8 col-lg-8">
+                @include('inc.messages')
+                @yield('content')
+              </div>
+              <div class="col-md-4 col-lg-4">
+                  @include('inc.sidebar')
+              </div>
 
             </div>
         </div>
