@@ -92,9 +92,15 @@ class UsersController extends Controller
 
     }
 
-    public function getAbout(){
+    public function getDashboard(){
 
-      return view('users.about');
+      return view('users.dashboard');
+
+    }
+
+    public function getBroconfig(){
+
+      return view('users.broconfig');
 
     }
 

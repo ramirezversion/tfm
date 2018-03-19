@@ -5,9 +5,9 @@
   background: #333;
 }
 
-.container{
-  padding: 25px 0 0 0;
-}
+// .container{
+//   padding: 25px 0 0 0;
+// }
 
 .list-group{
   padding: 10px 0 0 0;
@@ -34,4 +34,13 @@
 
 .jumbotron{
   padding: 1rem 1rem;
+}
+
+.p_separated{
+  padding-top: 15px;
+}
+
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
 }

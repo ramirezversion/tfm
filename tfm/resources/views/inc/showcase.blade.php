@@ -1,6 +1,5 @@
 <div class="jumbotron text-center">
   <div class="container">
-    <h3>Welcome to our site</h3>
-    <p class="lead">Aquí estamos Hoyvin Mayvin!</p>
+    <h1>Welcome to IDS pi management system</h1>
   </div>
 </div>

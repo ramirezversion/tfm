@@ -1,4 +1,4 @@
-@extends('layouts.loginlog')
+@extends('layouts.app')
 
 @section('content')
     <h1>Logins log</h1>
@@ -7,7 +7,7 @@
 
     @if(count($loginEntries) > 0)
 
-      <table class="table table-sm table-hover table-striped">
+      <table class="table table-sm table-hover table-striped table-bordered">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Username</th>

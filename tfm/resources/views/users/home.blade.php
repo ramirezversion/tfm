@@ -1,11 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Home</h1>
 
-    <h3>Homepage for user {{Auth::user()->username}}</h3>
+    <h3>Welcome user: <strong>{{Auth::user()->username}}</strong></h3>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at justo dolor. Morbi aliquet tristique mauris. Curabitur finibus sapien tortor. Ut eget elementum mauris. Quisque ligula orci, egestas eu sagittis a, volutpat id dolor. Phasellus ac dignissim risus, sit amet accumsan quam. Nulla nunc massa, ultrices quis sollicitudin in, feugiat sed mi. Vivamus mollis eleifend iaculis. Nunc ultricies pharetra risus ut ornare. Duis fermentum ornare turpis, ac commodo nulla tristique sed. Mauris venenatis turpis sit amet lacus suscipit, vel interdum diam placerat. Phasellus pretium pulvinar sem, vel hendrerit risus suscipit a. Nam gravida in dui id consectetur. Sed vitae dui mauris. Nunc nec leo commodo, fringilla risus eget, condimentum leo.</p>
+    <p class="lead">Bellow you will find a basic instructions about how to use the system. Enjoy it!</p>
+
+    <p>The system has two users allowed to login.</p>
+
+    <table class="table table-sm table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col">Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">admin</th>
+          <td>admin</td>
+          <td>Administrator profile with permission to configure all options in the IDS system</td>
+        </tr>
+        <tr>
+          <th scope="row">readonly</th>
+          <td>readonly</td>
+          <td>User with read only permission to check how the IDS system is configured</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="p_separated">
+      <strong>Home:</strong><br>
+      You are on this section =). It contains basic instructions for the <strong>IDS pi </strong> system.
+    </p>
+
+    <p class="p_separated">
+      <strong>Dashboard:</strong><br>
+      Here you will find basic statistics about the server in which the IDS pi system is running such as CPU and memory usage, temperature...
+    </p>
+
+    <p class="p_separated">
+      <strong>Bro Configuration:</strong><br>
+
+    </p>
+
+    <p class="p_separated">
+      <strong>Logins log:</strong><br>
+      This is the log of all the logins succeded or attempted to the system. The <strong>admin</strong> user will see all logins while the <strong>readonly</strong> user will only see its own.
+    </p>
+
 @endsection
 
 @section('sidebar')
