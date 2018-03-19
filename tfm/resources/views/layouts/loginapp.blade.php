@@ -10,7 +10,6 @@
         <div class="text-center">
           <div class="container">
             @yield('content')
-            @include('inc.messages')
           </div>
         </div>
         <footer id="footer" class="text-center">

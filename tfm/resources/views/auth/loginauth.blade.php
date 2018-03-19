@@ -21,6 +21,15 @@
         {{Form::submit('Login', ['class' => 'btn btn-lg btn-primary btn-lock'])}}
       </div>
 
+      <div>
+        <p>
+          @include('inc.messages')
+        </p>
+      </div>
+
     {!! Form::close() !!}
+
+
+
   </div>
 @endsection
