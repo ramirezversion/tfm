@@ -15,7 +15,7 @@
       <li class="nav-item {{Request::is('broconfig') ? 'active' : ''}}">
         <a class="nav-link" href="/broconfig">Bro Config</a>
       </li>
-      <li class="nav-item {{Request::is('/loginregister') ? 'active' : ''}}">
+      <li class="nav-item {{Request::is('loginregister') ? 'active' : ''}}">
         <a class="nav-link" href="/loginregister">Logins log</a>
       </li>
     </ul>
