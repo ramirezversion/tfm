@@ -42,7 +42,7 @@
 
     <p class="p_separated">
       <strong>Bro Configuration:</strong><br>
-
+      That is the "brain" of the system. Through this section you will be able to modify or view any of the bro configuration parameters.
     </p>
 
     <p class="p_separated">

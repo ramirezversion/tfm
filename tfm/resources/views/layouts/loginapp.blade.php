@@ -14,7 +14,7 @@
           </div>
         </div>
         <footer id="footer" class="text-center">
-          <p>Copyright 2018 &copy; Acme</p>
+          <p>IDS pi. 2nd Edition of Cyber Security Master. University of Granada.</p>
         </footer>
     </body>
 </html>
