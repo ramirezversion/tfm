@@ -22,7 +22,7 @@ Route::post('/logout', ['middleware' => 'auth', 'as' => 'logout', 'uses' => 'Log
 
 Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersController@getHome']);
 
-Route::get('/dashboard', ['middleware' => 'auth', 'as' => 'dashboard', 'uses' => 'UsersController@getDashboard']);
+Route::get('/dashboard', ['middleware' => 'auth', 'as' => 'dashboard', 'uses' => 'DashboardController@getDashboard']);
 
 Route::get('/broconfig', ['middleware' => 'auth', 'as' => 'broconfig', 'uses' => 'UsersController@getBroconfig']);
 

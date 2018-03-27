@@ -3,7 +3,7 @@
 @section('content')
     <h1>Logins log</h1>
 
-    <p>This is the register of the logins actions.</p>
+    <p class="lead">Here you have the register of the logins actions.</p>
 
     @if(count($loginEntries) > 0)
 

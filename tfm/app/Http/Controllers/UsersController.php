@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\LoginRegister;
@@ -93,16 +92,6 @@ class UsersController extends Controller
 
       // Return the view of the Home.
       return view('users.home');
-
-    }
-
-    /**
-     *
-     */
-    public function getDashboard(){
-
-      // Return the view of the Dashboard system
-      return view('users.dashboard');
 
     }
 
