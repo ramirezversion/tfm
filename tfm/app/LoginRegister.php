@@ -17,6 +17,9 @@ class LoginRegister extends Model
     $loginEntry = new LoginRegister;
     $now = new DateTime();
 
+    // Convert time and date to Europe/Madrid timezone
+    $now->setTimezone(new \DateTimeZone('Europe/Madrid'));
+
     $loginEntry->username = $username;
     $loginEntry->date = $now->format('Y-m-d');
     $loginEntry->time = $now->format('H:i:s');
