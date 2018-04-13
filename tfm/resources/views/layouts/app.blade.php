@@ -21,8 +21,8 @@
             @if(Route::current()->getName() == 'loginregister')
 
               <div class="col-md-12 col-lg-12">
-                  @include('inc.messages')
-                  @yield('content')
+                @include('inc.messages')
+                @yield('content')
               </div>
 
             @else
@@ -33,7 +33,7 @@
               </div>
 
               <div class="col-md-4 col-lg-4">
-                  @include('inc.sidebar')
+                @include('inc.sidebar')
               </div>
 
             @endif

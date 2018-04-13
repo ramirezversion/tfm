@@ -1,3 +1,5 @@
+<?php use App\Http\Controllers\DashboardController;?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -13,6 +15,8 @@
       <p>Number of cores: {{$dashboard->numcores}}</p>
       <p>Number of running processes: {{$dashboard->numproc}}</p>
       <p>Uptime: {{$dashboard->uptime}}</p>
+
+      <p>{{DashboardController::getMemoryUsagePercent()}}</p>
 
     @endif
 

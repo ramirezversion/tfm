@@ -31,7 +31,7 @@ class DashboardController extends Controller
   /**
    *
    */
-  public function getMemoryUsagePercent(){
+  public static function getMemoryUsagePercent(){
 
   	$free = shell_exec('free');
   	$free = (string)trim($free);

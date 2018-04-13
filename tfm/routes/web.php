@@ -27,3 +27,13 @@ Route::get('/dashboard', ['middleware' => 'auth', 'as' => 'dashboard', 'uses' =>
 Route::get('/broconfig', ['middleware' => 'auth', 'as' => 'broconfig', 'uses' => 'UsersController@getBroconfig']);
 
 Route::get('/loginregister', ['middleware' => 'auth', 'as' => 'loginregister', 'uses' => 'UsersController@getLoginRegisters']);
+
+// Route group for the ApiRest to get data for the dashboard
+Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
+  Route::get('/dashboard/memory', 'DashboardController@getMemoryUsagePercent');
+  Route::get('/dashboard/disk', 'DashboardController@getDiskUsage');
+  Route::get('/dashboard/numproc', 'DashboardController@getNumberOfProcesses');
+  Route::get('/dashboard/kernel', 'DashboardController@getKernelVersion');
+  Route::get('/dashboard/numcores', 'DashboardController@getNumberOfCores');
+  Route::resource('dashboard', 'DashboardController');
+});
