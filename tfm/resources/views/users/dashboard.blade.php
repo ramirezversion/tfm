@@ -16,8 +16,6 @@
       <p>Number of running processes: {{$dashboard->numproc}}</p>
       <p>Uptime: {{$dashboard->uptime}}</p>
 
-      <p>{{DashboardController::getMemoryUsagePercent()}}</p>
-
     @endif
 
 @endsection
