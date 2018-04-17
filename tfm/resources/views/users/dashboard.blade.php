@@ -16,6 +16,10 @@
       <p>Number of running processes: {{$dashboard->numproc}}</p>
       <p>Uptime: {{$dashboard->uptime}}</p>
 
+      <p>User: {{Auth::user()->username}}</p>
+      <p>User: {{Auth::user()->password}}</p>
+      <p>User: {{Auth::user()->remember_token}}</p>
+
     @endif
 
 @endsection
