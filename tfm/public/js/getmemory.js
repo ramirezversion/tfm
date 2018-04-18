@@ -1,19 +1,22 @@
 var DemoApp = angular.module('DemoApp', ['dx']);
 
-function damevalor($http){
-  $http.get("/api/dashboard/memory")
+function dameValor($http, $scope){
+   $http.get("/api/dashboard/memory")
        .then(function successCallback(response){
          console.log(response);
-         return response.data;
+         console.log(response.data);
+         $scope.value = response.data;
        }, function errorCallback(response){
          console.log("Unable to perform get request");
-         return;
        });
 };
 
-DemoApp.controller('DemoController', function DemoController($scope, $http) {
+var app = DemoApp.controller('DemoController', function DemoController($scope, $http) {
 
     $scope.gaugeOptions = {
+        bindingOptions: {
+          value: "value",
+        },
         scale: {
             startValue: 0,
             endValue: 100,
@@ -25,10 +28,11 @@ DemoApp.controller('DemoController', function DemoController($scope, $http) {
             }
         },
         rangeContainer: {
+          palette: "pastel",
             ranges: [
-                { startValue: 0, endValue: 20, color: "#CE2029" },
-                { startValue: 20, endValue: 50, color: "#FFD700" },
-                { startValue: 50, endValue: 100, color: "#228B22" }
+                { startValue: 0, endValue: 65 },
+                { startValue: 65, endValue: 85 },
+                { startValue: 85, endValue: 100 }
             ]
         },
         "export": {
@@ -38,8 +42,11 @@ DemoApp.controller('DemoController', function DemoController($scope, $http) {
             text: "Memory ussage",
             font: { size: 28 }
         },
-        value: Number(damevalor($http))
-    };
+        value: $scope.value,
+        onInitialized: function() {
+          var myvar = setInterval(function(){ dameValor($http, $scope) }, 3000);
+        }
 
+    };
 
 });
