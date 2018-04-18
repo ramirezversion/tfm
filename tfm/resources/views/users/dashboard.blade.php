@@ -20,6 +20,18 @@
       <p>User: {{Auth::user()->password}}</p>
       <p>User: {{Auth::user()->remember_token}}</p>
 
+      <script>
+        var memory = '{{$dashboard->memorypercent}}';
+        console.log(memory);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/api/dashboard/memory", true);
+        xhttp.send();
+        var memory2 = xhttp.responseText;
+        console.log(memory2);
+
+      </script>
+
     @endif
 
 @endsection

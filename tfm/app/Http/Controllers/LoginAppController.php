@@ -19,7 +19,6 @@ class LoginAppController extends Controller{
 
     $userdata = new User;
     $userdata = $request->only('username', 'password');
-
     $username = $request->input('username');
     $loginEntry = new LoginRegister;
 
