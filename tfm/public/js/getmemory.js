@@ -1,10 +1,10 @@
 var DemoApp = angular.module('DemoApp', ['dx']);
 
-function dameValor($http, $scope){
-   $http.get("/api/dashboard/memory")
+function dameValor($http, $scope, urlApi){
+   $http.get(urlApi)
        .then(function successCallback(response){
-         console.log(response);
-         console.log(response.data);
+         //console.log(response);
+         //console.log(response.data);
          $scope.value = response.data;
        }, function errorCallback(response){
          console.log("Unable to perform get request");
@@ -38,13 +38,13 @@ var app = DemoApp.controller('DemoController', function DemoController($scope, $
         "export": {
             enabled: true
         },
-        title: {
-            text: "Memory ussage",
-            font: { size: 28 }
-        },
+        // title: {
+        //     text: "Memory ussage",
+        //     font: { size: 28 }
+        // },
         value: $scope.value,
         onInitialized: function() {
-          var myvar = setInterval(function(){ dameValor($http, $scope) }, 3000);
+          var myvar = setInterval(function(){ dameValor($http, $scope, "/api/dashboard/memory") }, 1000);
         }
 
     };

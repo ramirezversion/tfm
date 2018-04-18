@@ -2,6 +2,18 @@
 
 @extends('layouts.app')
 
+@section('dashboard_javascript')
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/angular.min.js"></script>
+      <script src="/js/dx.all.js"></script>
+      <script src="/js/getmemory.js"></script>
+
+@endsection
+
 @section('content')
     <h1>Dashboard</h1>
 
@@ -18,9 +30,12 @@
 
     @endif
 
+    <p> Memory Ussage
+
       <div class="demo-container" ng-app="DemoApp" ng-controller="DemoController">
           <div id="gauge" dx-circular-gauge="gaugeOptions"></div>
       </div>
 
-
+    </p>
+    
 @endsection
