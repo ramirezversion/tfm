@@ -30,12 +30,13 @@
 
     @endif
 
-    <p> Memory Ussage
-
-      <div class="demo-container" ng-app="DemoApp" ng-controller="DemoController">
-          <div id="gauge" dx-circular-gauge="gaugeOptions"></div>
+    <p> Dashboard Gauges:
+      <div ng-app="GaugeDashApp" ng-controller="GaugeDashController">
+        <div class="long-title"><h3>Status</h3></div>
+          <div id="gaugeMemory" dx-circular-gauge="gauge.memoryDash"></div>
+          <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
       </div>
-
     </p>
-    
+
+
 @endsection
