@@ -18,6 +18,7 @@ class DashboardController extends Controller
     $dashboard = new Dashboard;
     $dashboard->memorypercent = $this->getMemoryUsagePercent();
     $dashboard->disk = $this->getDiskUsage();
+    $dashboard->cpu = $this->getCPUUsagePercent();
     $dashboard->uptime = $this->getUptime();
     $dashboard->numproc = $this->getNumberOfProcesses();
     $dashboard->kernel = $this->getKernelVersion();
@@ -25,6 +26,17 @@ class DashboardController extends Controller
 
     // Return the view of the Dashboard system
     return view('users.dashboard')->with('dashboard', $dashboard);
+
+  }
+
+  /**
+   *
+   */
+  public function getCPUUsagePercent(){
+
+  	$cpu_usage = sys_getloadavg();
+
+  	return $cpu_usage[0]*100;
 
   }
 

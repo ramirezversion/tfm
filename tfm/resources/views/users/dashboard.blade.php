@@ -10,7 +10,7 @@
       <script src="/js/jquery.min.js"></script>
       <script src="/js/angular.min.js"></script>
       <script src="/js/dx.all.js"></script>
-      <script src="/js/getmemory.js"></script>
+      <script src="/js/gauges.js"></script>
 
 @endsection
 
@@ -19,24 +19,28 @@
 
     <p class="lead">This is the status of the IDS pi system.</p>
 
+    <h3>Realtime status</h3>
+
+    <p>
+      <div ng-app="GaugeDashApp" ng-controller="GaugeDashController">
+          <div id="gaugeMemory" dx-circular-gauge="gauge.memoryDash"></div>
+          <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
+          <div id="gaugeCPU" dx-circular-gauge="gauge.cpuDash"></div>
+      </div>
+    </p>
+
+    <div>
     @if(count($dashboard) > 0)
 
-      <p>Memory ussage: {{$dashboard->memorypercent}}</p>
+      <!-- <p>Memory ussage: {{$dashboard->memorypercent}}</p>
       <p>Disk ussage: {{$dashboard->disk}}</p>
+      <p>CPU ussage: {{$dashboard->cpu}}</p> -->
       <p>Kernel version: {{$dashboard->kernel}}</p>
       <p>Number of cores: {{$dashboard->numcores}}</p>
       <p>Number of running processes: {{$dashboard->numproc}}</p>
       <p>Uptime: {{$dashboard->uptime}}</p>
 
     @endif
-
-    <p> Dashboard Gauges:
-      <div ng-app="GaugeDashApp" ng-controller="GaugeDashController">
-        <div class="long-title"><h3>Status</h3></div>
-          <div id="gaugeMemory" dx-circular-gauge="gauge.memoryDash"></div>
-          <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
-      </div>
-    </p>
-
+    </div>
 
 @endsection

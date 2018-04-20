@@ -32,6 +32,7 @@ Route::get('/loginregister', ['middleware' => 'auth', 'as' => 'loginregister', '
 Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
   Route::get('/dashboard/memory', 'DashboardController@getMemoryUsagePercent');
   Route::get('/dashboard/disk', 'DashboardController@getDiskUsage');
+  Route::get('/dashboard/cpu', 'DashboardController@getCPUUsagePercent');
   Route::get('/dashboard/numproc', 'DashboardController@getNumberOfProcesses');
   Route::get('/dashboard/kernel', 'DashboardController@getKernelVersion');
   Route::get('/dashboard/numcores', 'DashboardController@getNumberOfCores');

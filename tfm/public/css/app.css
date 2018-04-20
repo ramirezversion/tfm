@@ -10038,9 +10038,16 @@ body {
   padding-top: 4.5rem;
 }
 
-#gaugeMemory {
-  height: 225px;
-  width: 100%;
+#gaugeMemory,
+#gaugeDisk,
+#gaugeCPU {
+  display: inline-block;
+}
+
+#gaugeMemory,
+#gaugeDisk,
+#gaugeCPU {
+  width: 32%;
 }
 
 .navbar-laravel {
