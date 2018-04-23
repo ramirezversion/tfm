@@ -49,24 +49,24 @@ function getApiValues($http, i){
 
 function getFullApiValues($http, $scope){
 
-  var dashboard = {};
+  //var dashboard = {};
   var response;
 
   $http.get("/api/dashboard/full")
       .then(function successCallback(response){
         console.log(response.data);
-        dashboard = response.data;
+        //dashboard = response.data;
       }, function errorCallback(response){
         console.log("Unable to perform get request");
       });
 
-  $scope.memoryValue = dashboard.memorypercent;
-  $scope.diskValue = dashboard.disk;
-  $scope.cpuValue = dashboard.cpu;
-  $scope.uptime = dashboard.uptime;
-  $scope.numProceses = dashboard.numproc;
-  $scope.kernelVersion = dashboard.kernel;
-  $scope.numCores = dashboard.numcores;
+  $scope.memoryValue = response.data.memorypercent;
+  $scope.diskValue = response.data.disk;
+  $scope.cpuValue = response.data.cpu;
+  $scope.uptime = response.data.uptime;
+  $scope.numProceses = response.data.numproc;
+  $scope.kernelVersion = response.data.kernel;
+  $scope.numCores = response.data.numcores;
 
 }
 
