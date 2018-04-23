@@ -9,7 +9,7 @@ var apiRoutes = [
 
 
 function followTheFor($http, $scope){
-  
+
   for (var i = 0; i < apiRoutes.length; i++) {
     getApiValues($http, $scope, i);
   }
@@ -72,7 +72,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
 
     //var myvar = setInterval(function(){ getApiValues($http, $scope) }, 1000);
 
-    var myvar = setInterval(function(){ getApiValues($http, $scope) }, 1000);
+    var myvar = setInterval(function(){ followTheFor($http, $scope) }, 1000);
 
     var scale = {
       startValue: 0,
