@@ -1,11 +1,17 @@
 var RouteMemory = {value:"memoryValue", route:"/api/dashboard/memory"};
 var RouteDisk = {value:"diskValue", route:"/api/dashboard/disk"};
 var RouteCPU = {value:"cpuValue", route:"/api/dashboard/cpu"};
+var RouteNumProceses = {value:"numProcValue", route:"/api/dashboard/numproc"};
+var RouteKernelVersion = {value:"kernelVersion", route:"/api/dashboard/kernel"};
+var RouteNumCores = {value:"numCores", route:"/api/dashboard/numcores"};
 
 var apiRoutes = [
   RouteMemory,
   RouteDisk,
-  RouteCPU
+  RouteCPU,
+  RouteNumProceses,
+  RouteKernelVersion,
+  RouteNumCores
 ];
 
 
@@ -18,6 +24,9 @@ function asyncFor($http, $scope){
   $scope.memoryValue = apiRoutes[0].data;
   $scope.diskValue = apiRoutes[1].data;
   $scope.cpuValue = apiRoutes[2].data;
+  $scope.numProceses = apiRoutes[3].data;
+  $scope.kernelVersion = apiRoutes[4].data;
+  $scope.numCores = apiRoutes[5].data;
 
 }
 
@@ -27,12 +36,12 @@ function getApiValues($http, i){
   var callApiRoute = String(apiRoutes[i].route);
   var response;
 
-    $http.get(callApiRoute)
-        .then(function successCallback(response){
-          apiRoutes[i].data = response.data;
-        }, function errorCallback(response){
-          console.log("Unable to perform get request");
-        });
+  $http.get(callApiRoute)
+      .then(function successCallback(response){
+        apiRoutes[i].data = response.data;
+      }, function errorCallback(response){
+        console.log("Unable to perform get request");
+      });
 
 };
 
