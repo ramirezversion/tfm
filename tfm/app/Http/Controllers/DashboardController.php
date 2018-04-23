@@ -29,6 +29,26 @@ class DashboardController extends Controller
 
   }
 
+
+  /**
+   *
+   */
+  public function getFullApi(){
+
+    $dashboard = new Dashboard;
+    $dashboard->memorypercent = $this->getMemoryUsagePercent();
+    $dashboard->disk = $this->getDiskUsage();
+    $dashboard->cpu = $this->getCPUUsagePercent();
+    $dashboard->uptime = $this->getUptime();
+    $dashboard->numproc = $this->getNumberOfProcesses();
+    $dashboard->kernel = $this->getKernelVersion();
+    $dashboard->numcores = $this->getNumberOfCores();
+
+    return $dashboard;
+
+  }
+
+
   /**
    *
    */
@@ -39,7 +59,7 @@ class DashboardController extends Controller
            $cpuCoreNo = intval(trim(shell_exec($cmd)));
         }
     $coreCount = empty($cpuCoreNo) ? 1 : $cpuCoreNo;
-    
+
     $interval = 1;
     $rs = sys_getloadavg();
     $interval = $interval >= 1 && 3 <= $interval ? $interval : 1;

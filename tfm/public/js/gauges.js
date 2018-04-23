@@ -46,11 +46,36 @@ function getApiValues($http, i){
 };
 
 
+
+function getFullApiValues($http, $scope){
+
+  var dashboard;
+
+  $http.get("/api/dashboard/full")
+      .then(function successCallback(response){
+        dashboard = response.data;
+      }, function errorCallback(response){
+        console.log("Unable to perform get request");
+      });
+
+  $scope.memoryValue = dashboard.memorypercent;
+  $scope.diskValue = dashboard.disk;
+  $scope.cpuValue = dashboard.cpu;
+  $scope.uptime = dashboard.uptime;
+  $scope.numProceses = dashboard.numproc;
+  $scope.kernelVersion = dashboard.kernel;
+  $scope.numCores = dashboard.numcores;
+
+}
+
+
+
 var GaugeDashApp = angular.module('GaugeDashApp', ['dx']);
 
 GaugeDashApp.controller('GaugeDashController', function GaugeDashController($scope, $http) {
 
-    var myvar = setInterval(function(){ asyncFor($http, $scope) }, 1000);
+    //var myvar = setInterval(function(){ asyncFor($http, $scope) }, 1000);
+    var myvar = setInterval(function(){ getFullApiValues($http, $scope) }, 1000);
 
     var scale = {
       startValue: 0,
