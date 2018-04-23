@@ -50,7 +50,7 @@ function getApiValues($http, i){
 function getFullApiValues($http, $scope){
 
   //var dashboard = {};
-  var response;
+  //var response;
 
   $http.get("/api/dashboard/full")
       .then(function successCallback(response){
