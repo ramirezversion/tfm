@@ -56,17 +56,16 @@ function getFullApiValues($http, $scope){
       .then(function successCallback(response){
         console.log(response.data);
         //dashboard = response.data;
+        $scope.memoryValue = response.data.memorypercent;
+        $scope.diskValue = response.data.disk;
+        $scope.cpuValue = response.data.cpu;
+        $scope.uptime = response.data.uptime;
+        $scope.numProceses = response.data.numproc;
+        $scope.kernelVersion = response.data.kernel;
+        $scope.numCores = response.data.numcores;
       }, function errorCallback(response){
         console.log("Unable to perform get request");
       });
-
-  $scope.memoryValue = response.data.memorypercent;
-  $scope.diskValue = response.data.disk;
-  $scope.cpuValue = response.data.cpu;
-  $scope.uptime = response.data.uptime;
-  $scope.numProceses = response.data.numproc;
-  $scope.kernelVersion = response.data.kernel;
-  $scope.numCores = response.data.numcores;
 
 }
 
