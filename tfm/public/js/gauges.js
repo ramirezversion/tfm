@@ -49,7 +49,7 @@ function getApiValues($http, i){
 
 function getFullApiValues($http, $scope){
 
-  var dashboard;
+  var dashboard = {};
   var response;
 
   $http.get("/api/dashboard/full")
