@@ -4,14 +4,15 @@ var RouteCPU = {value:"cpuValue", route:"/api/dashboard/cpu"};
 
 var apiRoutes = [
   RouteMemory,
-  RouteDisk
+  RouteDisk,
+  RouteCPU
 ];
 
 
-function followTheFor($http, $scope){
+function asyncFor($http, $scope){
 
   for (var i = 0; i < apiRoutes.length; i++) {
-    getApiValues($http, $scope, i);
+    getApiValues($http, i);
   }
 
   $scope.memoryValue = apiRoutes[0].data;
@@ -21,58 +22,26 @@ function followTheFor($http, $scope){
 }
 
 
-function getApiValues($http, $scope, i){
+function getApiValues($http, i){
 
-    $http.get(apiRoutes[i].route)
-        .then(function successCallback(responseMemory){
-          console.log(i);
-          console.log(response.data);
-          //$scope.memoryValue = response.data;
-          apiRoutes[i].data = responseMemory.data;
-        }, function errorCallback(responseMemory){
+  var callApiRoute = String(apiRoutes[i].route);
+  var response;
+
+    $http.get(callApiRoute)
+        .then(function successCallback(response){
+          apiRoutes[i].data = response.data;
+        }, function errorCallback(response){
           console.log("Unable to perform get request");
         });
 
-
-     // $http.get("/api/dashboard/memory")
-     //     .then(function successCallback(responseMemory){
-     //       console.log(responseMemory);
-     //       //console.log(response.data);
-     //       //$scope.memoryValue = response.data;
-     //       $scope.memoryValue = responseMemory.data;
-     //     }, function errorCallback(responseMemory){
-     //       console.log("Unable to perform get request");
-     //     });
-     //
-     // $http.get("/api/dashboard/disk")
-     //     .then(function successCallback(responseDisk){
-     //       console.log(responseDisk);
-     //       //console.log(response.data);
-     //       //$scope.memoryValue = response.data;
-     //       $scope.diskValue = responseDisk.data;
-     //     }, function errorCallback(responseDisk){
-     //       console.log("Unable to perform get request");
-     //     });
-     //
-     // $http.get("/api/dashboard/cpu")
-     //     .then(function successCallback(responseCPU){
-     //       console.log(responseCPU);
-     //       //console.log(response.data);
-     //       //$scope.memoryValue = response.data;
-     //       $scope.cpuValue = responseCPU.data;
-     //     }, function errorCallback(responseCPU){
-     //       console.log("Unable to perform get request");
-     //     });
-
 };
+
 
 var GaugeDashApp = angular.module('GaugeDashApp', ['dx']);
 
 GaugeDashApp.controller('GaugeDashController', function GaugeDashController($scope, $http) {
 
-    //var myvar = setInterval(function(){ getApiValues($http, $scope) }, 1000);
-
-    var myvar = setInterval(function(){ followTheFor($http, $scope) }, 1000);
+    var myvar = setInterval(function(){ asyncFor($http, $scope) }, 1000);
 
     var scale = {
       startValue: 0,
