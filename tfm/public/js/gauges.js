@@ -53,6 +53,7 @@ function getFullApiValues($http, $scope){
 
   $http.get("/api/dashboard/full")
       .then(function successCallback(response){
+        console.log(response.data);
         dashboard = response.data;
       }, function errorCallback(response){
         console.log("Unable to perform get request");
