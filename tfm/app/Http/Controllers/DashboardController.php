@@ -34,9 +34,17 @@ class DashboardController extends Controller
    */
   public function getCPUUsagePercent(){
 
-  	$cpu_usage = sys_getloadavg();
-
-  	return $cpu_usage[0]*100;
+    $cmd = "cat /proc/cpuinfo | grep processor | wc -l";
+    if ($cmd != ''){
+           $cpuCoreNo = intval(trim(shell_exec($cmd)));
+        }
+    $coreCount = empty($cpuCoreNo) ? 1 : $cpuCoreNo;
+    
+    $interval = 1;
+    $rs = sys_getloadavg();
+    $interval = $interval >= 1 && 3 <= $interval ? $interval : 1;
+    $load  = $rs[$interval];
+    return round(($load * 100) / $coreCount,2);
 
   }
 

@@ -10,9 +10,6 @@ function getApiValues($http, $scope){
 
      $http.get("/api/dashboard/memory")
          .then(function successCallback(responseMemory){
-           console.log(responseMemory);
-           //console.log(response.data);
-           //$scope.memoryValue = response.data;
            $scope.memoryValue = responseMemory.data;
          }, function errorCallback(responseMemory){
            console.log("Unable to perform get request");
@@ -20,9 +17,6 @@ function getApiValues($http, $scope){
 
      $http.get("/api/dashboard/disk")
          .then(function successCallback(responseDisk){
-           console.log(responseDisk);
-           //console.log(response.data);
-           //$scope.memoryValue = response.data;
            $scope.diskValue = responseDisk.data;
          }, function errorCallback(responseDisk){
            console.log("Unable to perform get request");
@@ -30,9 +24,6 @@ function getApiValues($http, $scope){
 
      $http.get("/api/dashboard/cpu")
          .then(function successCallback(responseCPU){
-           console.log(responseCPU);
-           //console.log(response.data);
-           //$scope.memoryValue = response.data;
            $scope.cpuValue = responseCPU.data;
          }, function errorCallback(responseCPU){
            console.log("Unable to perform get request");
@@ -87,8 +78,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
             enabled: false
         },
         title: {
-           text: "Memory ussage",
-           font: { size: 16 }
+           text: "Memory usage",
         },
         value: $scope.memoryValue,
       },
@@ -101,8 +91,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
             enabled: false
         },
         title: {
-           text: "Disk ussage",
-           font: { size: 16 }
+           text: "Disk usage",
         },
         value: $scope.diskValue,
       },
@@ -115,8 +104,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
             enabled: false
         },
         title: {
-           text: "CPU ussage",
-           font: { size: 16 }
+           text: "CPU usage",
         },
         value: $scope.cpuValue,
       }
