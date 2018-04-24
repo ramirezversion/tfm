@@ -97,6 +97,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
     var bindingOptionsNumProceses = {
       value: "numProceses",
     };
+
     var bindingOptionsNumCores = {
       value: "numCores",
     };

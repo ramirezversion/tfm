@@ -7,9 +7,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-      <script src="/js/jquery.min.js"></script>
-      <script src="/js/angular.min.js"></script>
-      <script src="/js/dx.all.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <!-- <script src="/js/jquery.min.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+      <!-- <script src="/js/angular.min.js"></script> -->
+      <script src="https://cdn3.devexpress.com/jslib/17.2.7/js/dx.all.js"></script>
+      <!-- <script src="/js/dx.all.js"></script> -->
       <script src="/js/gauges.js"></script>
 
 @endsection
@@ -28,16 +31,9 @@
           <div id="gaugeCPU" dx-circular-gauge="gauge.cpuDash"></div>
           <div id="gaugeNumProceses" dx-linear-gauge="gauge.numProcesesDash"></div>
           <div id="gaugeNumCores" dx-linear-gauge="gauge.numCoresDash"></div>
+          <div id="gaugeKernel"><b>Kernel Version: </b>@{{kernelVersion}}</div>
+          <div id="gaugeUptime"><b>Uptime: </b>@{{uptime}}</div>
       </div>
     </p>
-
-    <div>
-      @if(count($dashboard) > 0)
-
-        <p>Kernel version: {{$dashboard->kernel}}</p>
-        <p>Uptime: {{$dashboard->uptime}}</p>
-
-      @endif
-    </div>
 
 @endsection

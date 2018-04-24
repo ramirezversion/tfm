@@ -15,17 +15,7 @@ class DashboardController extends Controller
    */
   public function getDashboard(){
 
-    $dashboard = new Dashboard;
-    $dashboard->memorypercent = $this->getMemoryUsagePercent();
-    $dashboard->disk = $this->getDiskUsage();
-    $dashboard->cpu = $this->getCPUUsagePercent();
-    $dashboard->uptime = $this->getUptime();
-    $dashboard->numproc = $this->getNumberOfProcesses();
-    $dashboard->kernel = $this->getKernelVersion();
-    $dashboard->numcores = $this->getNumberOfCores();
-
-    // Return the view of the Dashboard system
-    return view('users.dashboard')->with('dashboard', $dashboard);
+    return view('users.dashboard');
 
   }
 
