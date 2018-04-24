@@ -1,61 +1,8 @@
-var RouteMemory = {value:"memoryValue", route:"/api/dashboard/memory"};
-var RouteDisk = {value:"diskValue", route:"/api/dashboard/disk"};
-var RouteCPU = {value:"cpuValue", route:"/api/dashboard/cpu"};
-var RouteNumProceses = {value:"numProcValue", route:"/api/dashboard/numproc"};
-var RouteKernelVersion = {value:"kernelVersion", route:"/api/dashboard/kernel"};
-var RouteNumCores = {value:"numCores", route:"/api/dashboard/numcores"};
-
-var apiRoutes = [
-  RouteMemory,
-  RouteDisk,
-  RouteCPU,
-  RouteNumProceses,
-  RouteKernelVersion,
-  RouteNumCores
-];
-
-
-function asyncFor($http, $scope){
-
-  for (var i = 0; i < apiRoutes.length; i++) {
-    getApiValues($http, i);
-  }
-
-  $scope.memoryValue = apiRoutes[0].data;
-  $scope.diskValue = apiRoutes[1].data;
-  $scope.cpuValue = apiRoutes[2].data;
-  $scope.numProceses = apiRoutes[3].data;
-  $scope.kernelVersion = apiRoutes[4].data;
-  $scope.numCores = apiRoutes[5].data;
-
-}
-
-
-function getApiValues($http, i){
-
-  var callApiRoute = String(apiRoutes[i].route);
-  var response;
-
-  $http.get(callApiRoute)
-      .then(function successCallback(response){
-        apiRoutes[i].data = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get request");
-      });
-
-};
-
-
-
 function getFullApiValues($http, $scope){
-
-  //var dashboard = {};
-  //var response;
 
   $http.get("/api/dashboard/full")
       .then(function successCallback(response){
-        console.log(response.data);
-        //dashboard = response.data;
+        //console.log(response.data);
         $scope.memoryValue = response.data.memorypercent;
         $scope.diskValue = response.data.disk;
         $scope.cpuValue = response.data.cpu;
@@ -70,12 +17,10 @@ function getFullApiValues($http, $scope){
 }
 
 
-
 var GaugeDashApp = angular.module('GaugeDashApp', ['dx']);
 
 GaugeDashApp.controller('GaugeDashController', function GaugeDashController($scope, $http) {
 
-    //var myvar = setInterval(function(){ asyncFor($http, $scope) }, 1000);
     var myvar = setInterval(function(){ getFullApiValues($http, $scope) }, 1000);
 
     var scale = {
@@ -89,12 +34,32 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
       }
     };
 
+    var scaleLinear = {
+      startValue: 0,
+      endValue: 250,
+      tickInterval: 50,
+      label: {
+        customizeText: function (arg) {
+            return arg.valueText;
+        }
+      }
+    };
+
     var rangeContainer= {
       palette: "pastel",
         ranges: [
             { startValue: 0, endValue: 65 },
             { startValue: 65, endValue: 85 },
             { startValue: 85, endValue: 100 }
+        ]
+    };
+
+    var rangeContainerLinear= {
+      palette: "pastel",
+        ranges: [
+            { startValue: 0, endValue: 180 },
+            { startValue: 180, endValue: 220 },
+            { startValue: 220, endValue: 250 }
         ]
     };
 
@@ -108,6 +73,10 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
 
     var bindingOptionsCPU = {
       value: "cpuValue",
+    };
+
+    var bindingOptionsNumProceses = {
+      value: "numProceses",
     };
 
     $scope.gauge = {
@@ -148,6 +117,31 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
            text: "CPU usage",
         },
         value: $scope.cpuValue,
+      },
+
+      numProcesesDash: {
+        bindingOptions: bindingOptionsNumProceses,
+        scale: scaleLinear,
+        rangeContainer: rangeContainerLinear,
+        "export": {
+           enabled: false
+        },
+        title: {
+           text: "Number of running proceses",
+        },
+        tooltip: {
+          enabled: true,
+          customizeTooltip: function (arg) {
+              return {
+                  text: arg.valueText,
+              };
+          }
+        },
+        valueIndicator: {
+           type: "triangleMarker",
+           color: "#f05b41"
+        },
+        value: $scope.numProceses,
       }
 
     };

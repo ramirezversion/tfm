@@ -26,21 +26,18 @@
           <div id="gaugeMemory" dx-circular-gauge="gauge.memoryDash"></div>
           <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
           <div id="gaugeCPU" dx-circular-gauge="gauge.cpuDash"></div>
+          <div id="gaugeNumProceses" dx-linear-gauge="gauge.numProcesesDash"></div>
       </div>
     </p>
 
     <div>
-    @if(count($dashboard) > 0)
+      @if(count($dashboard) > 0)
 
-      <!-- <p>Memory ussage: {{$dashboard->memorypercent}}</p>
-      <p>Disk ussage: {{$dashboard->disk}}</p>
-      <p>CPU ussage: {{$dashboard->cpu}}</p> -->
-      <p>Kernel version: {{$dashboard->kernel}}</p>
-      <p>Number of cores: {{$dashboard->numcores}}</p>
-      <p>Number of running processes: {{$dashboard->numproc}}</p>
-      <p>Uptime: {{$dashboard->uptime}}</p>
+        <p>Kernel version: {{$dashboard->kernel}}</p>
+        <p>Number of cores: {{$dashboard->numcores}}</p>
+        <p>Uptime: {{$dashboard->uptime}}</p>
 
-    @endif
+      @endif
     </div>
 
 @endsection
