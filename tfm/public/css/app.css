@@ -10062,6 +10062,10 @@ body {
   font-size: 16px !important;
 }
 
+.dxg-tooltip text {
+  font-family: "Raleway", sans-serif !important;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

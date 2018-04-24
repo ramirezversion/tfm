@@ -64,6 +64,15 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
         ]
     };
 
+    var rangeContainerCores= {
+      palette: "ocean",
+      ranges: [
+          { startValue: 0, endValue: 1 },
+          { startValue: 1, endValue: 2 },
+          { startValue: 2, endValue: 8 }
+      ]
+    };
+
     var rangeContainerLinear= {
       palette: "pastel",
         ranges: [
@@ -160,6 +169,7 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
       numCoresDash: {
         bindingOptions: bindingOptionsNumCores,
         scale: scaleCores,
+        rangeContainer: rangeContainerCores,
         "export": {
            enabled: false
         },
