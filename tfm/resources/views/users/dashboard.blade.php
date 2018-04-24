@@ -27,6 +27,7 @@
           <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
           <div id="gaugeCPU" dx-circular-gauge="gauge.cpuDash"></div>
           <div id="gaugeNumProceses" dx-linear-gauge="gauge.numProcesesDash"></div>
+          <div id="gaugeNumCores" dx-linear-gauge="gauge.numCoresDash"></div>
       </div>
     </p>
 
@@ -34,7 +35,6 @@
       @if(count($dashboard) > 0)
 
         <p>Kernel version: {{$dashboard->kernel}}</p>
-        <p>Number of cores: {{$dashboard->numcores}}</p>
         <p>Uptime: {{$dashboard->uptime}}</p>
 
       @endif

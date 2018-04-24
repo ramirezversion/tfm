@@ -2,7 +2,6 @@ function getFullApiValues($http, $scope){
 
   $http.get("/api/dashboard/full")
       .then(function successCallback(response){
-        //console.log(response.data);
         $scope.memoryValue = response.data.memorypercent;
         $scope.diskValue = response.data.disk;
         $scope.cpuValue = response.data.cpu;
@@ -45,6 +44,17 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
       }
     };
 
+    var scaleCores = {
+      startValue: 0,
+      endValue: 8,
+      tickInterval: 1,
+      label: {
+        customizeText: function (arg) {
+            return arg.valueText;
+        }
+      }
+    };
+
     var rangeContainer= {
       palette: "pastel",
         ranges: [
@@ -77,6 +87,9 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
 
     var bindingOptionsNumProceses = {
       value: "numProceses",
+    };
+    var bindingOptionsNumCores = {
+      value: "numCores",
     };
 
     $scope.gauge = {
@@ -128,6 +141,30 @@ GaugeDashApp.controller('GaugeDashController', function GaugeDashController($sco
         },
         title: {
            text: "Number of running proceses",
+        },
+        tooltip: {
+          enabled: true,
+          customizeTooltip: function (arg) {
+              return {
+                  text: arg.valueText,
+              };
+          }
+        },
+        valueIndicator: {
+           type: "triangleMarker",
+           color: "#f05b41"
+        },
+        value: $scope.numCores,
+      },
+
+      numCoresDash: {
+        bindingOptions: bindingOptionsNumCores,
+        scale: scaleCores,
+        "export": {
+           enabled: false
+        },
+        title: {
+           text: "Number of cores",
         },
         tooltip: {
           enabled: true,
