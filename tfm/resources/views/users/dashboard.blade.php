@@ -26,13 +26,28 @@
 
     <p>
       <div ng-app="GaugeDashApp" ng-controller="GaugeDashController">
+
           <div id="gaugeMemory" dx-circular-gauge="gauge.memoryDash"></div>
           <div id="gaugeDisk" dx-circular-gauge="gauge.diskDash"></div>
           <div id="gaugeCPU" dx-circular-gauge="gauge.cpuDash"></div>
           <div id="gaugeNumProceses" dx-linear-gauge="gauge.numProcesesDash"></div>
           <div id="gaugeNumCores" dx-linear-gauge="gauge.numCoresDash"></div>
-          <div id="gaugeKernel"><b>Kernel Version: </b>@{{kernelVersion}}</div>
-          <div id="gaugeUptime"><b>Uptime: </b>@{{uptime}}</div>
+
+          <table class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Kernel Version</th>
+                <th scope="col">Uptime</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">@{{kernelVersion}}</th>
+                <th scope="row">@{{uptime}}</th>
+              </tr>
+            </tbody>
+          </table>
+
       </div>
     </p>
 

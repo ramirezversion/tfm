@@ -10049,22 +10049,13 @@ body {
 
 #gaugeNumProceses,
 #gaugeNumCores {
+  margin-bottom: 15px;
   display: inline-block;
   width: 45%;
 }
 
 #gaugeNumProceses {
   margin-right: 40px;
-}
-
-#gaugeUptime,
-#gaugeKernel {
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 25px;
-  width: 45%;
-  font-family: "Raleway", sans-serif !important;
-  font-size: 16px !important;
 }
 
 .dxg-title text {
