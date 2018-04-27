@@ -33,7 +33,7 @@
           <div id="gaugeNumProceses" dx-linear-gauge="gauge.numProcesesDash"></div>
           <div id="gaugeNumCores" dx-linear-gauge="gauge.numCoresDash"></div>
 
-          <table class="table table-sm table-hover table-striped table-bordered">
+          <table id="tableVersion" class="table table-sm table-hover table-striped table-bordered">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Kernel Version</th>
@@ -44,6 +44,19 @@
               <tr>
                 <th scope="row">@{{kernelVersion}}</th>
                 <th scope="row">@{{uptime}}</th>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="tableTop" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Top proceses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><pre>@{{top}}</pre></td>
               </tr>
             </tbody>
           </table>

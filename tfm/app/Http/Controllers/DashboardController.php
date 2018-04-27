@@ -33,8 +33,19 @@ class DashboardController extends Controller
     $dashboard->numproc = $this->getNumberOfProcesses();
     $dashboard->kernel = $this->getKernelVersion();
     $dashboard->numcores = $this->getNumberOfCores();
+    $dashboard->top = $this->getTop();
 
     return $dashboard;
+
+  }
+
+  /**
+   *
+   */
+  public function getTop(){
+
+    $top = shell_exec('top -bn 1');
+    return (string)$top;
 
   }
 
@@ -47,7 +58,7 @@ class DashboardController extends Controller
     $cmd = "cat /proc/cpuinfo | grep processor | wc -l";
     if ($cmd != ''){
            $cpuCoreNo = intval(trim(shell_exec($cmd)));
-        }
+    }
     $coreCount = empty($cpuCoreNo) ? 1 : $cpuCoreNo;
 
     $interval = 1;
@@ -70,7 +81,6 @@ class DashboardController extends Controller
   	$mem = array_filter($mem);
   	$mem = array_merge($mem);
   	$memory_usage = round ($mem[2] / $mem[1] * 100);
-
   	return $memory_usage;
 
   }
@@ -83,7 +93,6 @@ class DashboardController extends Controller
 	   $disktotal = disk_total_space ('/');
 	   $diskfree  = disk_free_space  ('/');
 	   $diskuse   = round (100 - (($diskfree / $disktotal) * 100));
-
 	   return $diskuse;
 
   }
@@ -101,7 +110,6 @@ class DashboardController extends Controller
     $days  = $num;
 
     $uptime = $days . ' days, ' . $hours . ' hours, ' . $mins . ' mins, ' . round($secs) . ' secs';
-
 	  return $uptime;
 
   }
@@ -133,7 +141,6 @@ class DashboardController extends Controller
 
 	   $kernel = explode(' ', file_get_contents('/proc/version'));
 	   $kernel = $kernel[2];
-
 	   return $kernel;
 
   }

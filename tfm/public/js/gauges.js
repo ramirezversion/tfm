@@ -9,6 +9,7 @@ function getFullApiValues($http, $scope){
         $scope.numProceses = response.data.numproc;
         $scope.kernelVersion = response.data.kernel;
         $scope.numCores = response.data.numcores;
+        $scope.top = response.data.top;
       }, function errorCallback(response){
         console.log("Unable to perform get request");
       });

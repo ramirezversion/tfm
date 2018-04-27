@@ -36,6 +36,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
   Route::get('/dashboard/numproc', 'DashboardController@getNumberOfProcesses');
   Route::get('/dashboard/kernel', 'DashboardController@getKernelVersion');
   Route::get('/dashboard/numcores', 'DashboardController@getNumberOfCores');
+  Route::get('/dashboard/top', 'DashboardController@getTop');
   Route::get('/dashboard/full', 'DashboardController@getFullApi');
   Route::resource('dashboard', 'DashboardController');
 });

@@ -10058,6 +10058,11 @@ body {
   margin-right: 40px;
 }
 
+#tableVersion,
+#tableNet {
+  margin-bottom: 35px;
+}
+
 .dxg-title text {
   font-family: "Raleway", sans-serif !important;
   font-size: 16px !important;
