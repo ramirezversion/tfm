@@ -52,8 +52,8 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Top proceses
-                  <span id="toggleMessage" ng-click="toggle=!toggle">
-                    @{{toggle ? '[-]' : '[+]'}}
+                  <span class="btn btn-outline-light btn-sm" id="toggleProceses" ng-click="toggle=!toggle">
+                    @{{toggle ? '-' : '+'}}
                   </span>
                 </th>
               </tr>
@@ -61,6 +61,23 @@
             <tbody ng-show="toggle">
               <tr>
                 <td><pre>@{{top}}</pre></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="tableNet" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Netstat
+                  <span class="btn btn-outline-light btn-sm" id="toggleNetstat" ng-click="toggle2=!toggle2">
+                    @{{toggle2 ? '-' : '+'}}
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody ng-show="toggle2">
+              <tr>
+                <td><pre>@{{net}}</pre></td>
               </tr>
             </tbody>
           </table>

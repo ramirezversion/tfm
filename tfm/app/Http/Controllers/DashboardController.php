@@ -34,10 +34,23 @@ class DashboardController extends Controller
     $dashboard->kernel = $this->getKernelVersion();
     $dashboard->numcores = $this->getNumberOfCores();
     $dashboard->top = $this->getTop();
+    $dashboard->net = $this->getNetstat();
 
     return $dashboard;
 
   }
+
+
+  /**
+   *
+   */
+  public function getNetstat(){
+
+    $net = shell_exec('sudo netstat -antup');
+    return (string)$net;
+
+  }
+
 
   /**
    *

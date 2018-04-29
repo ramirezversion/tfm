@@ -10,6 +10,7 @@ function getFullApiValues($http, $scope){
         $scope.kernelVersion = response.data.kernel;
         $scope.numCores = response.data.numcores;
         $scope.top = response.data.top;
+        $scope.net = response.data.net;
       }, function errorCallback(response){
         console.log("Unable to perform get request");
       });

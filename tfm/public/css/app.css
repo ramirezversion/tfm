@@ -10059,8 +10059,8 @@ body {
 }
 
 #tableVersion,
-#tableNet {
-  margin-bottom: 35px;
+#tableTop {
+  margin-bottom: 25px;
 }
 
 .dxg-title text {
@@ -10070,6 +10070,16 @@ body {
 
 .dxg-tooltip text {
   font-family: "Raleway", sans-serif !important;
+}
+
+#toggleProceses,
+#toggleNetstat {
+  font-size: 42px;
+  font-weight: bold;
+  padding: 0rem 0.10rem !important;
+  line-height: 0.5 !important;
+  display: block;
+  float: right;
 }
 
 .navbar-laravel {
