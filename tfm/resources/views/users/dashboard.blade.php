@@ -52,9 +52,9 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Top proceses
-                  <button id="toggleMessage" ng-click="toggle=!toggle">
-                    @{{toggle ? '-' : '+'}}
-                  </button>
+                  <span id="toggleMessage" ng-click="toggle=!toggle">
+                    @{{toggle ? '[-]' : '[+]'}}
+                  </span>
                 </th>
               </tr>
             </thead>
