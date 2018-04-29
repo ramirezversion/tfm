@@ -51,10 +51,14 @@
           <table id="tableTop" class="table table-sm table-hover table-striped table-bordered">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Top proceses</th>
+                <th scope="col">Top proceses
+                  <button id="toggleMessage" ng-click="toggle=!toggle">
+                    @{{toggle ? '-' : '+'}}
+                  </button>
+                </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody ng-show="toggle">
               <tr>
                 <td><pre>@{{top}}</pre></td>
               </tr>
