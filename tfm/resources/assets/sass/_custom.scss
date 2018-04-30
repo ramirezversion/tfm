@@ -55,7 +55,13 @@ body {
 }
 
 #gaugeNumProceses {
-  margin-right: 40px;
+  margin-left: 20px;
+  float: left;
+}
+
+#gaugeNumCores {
+  margin-right: 20px;
+  float: right;
 }
 
 #tableVersion, #tableTop {
@@ -69,6 +75,10 @@ body {
 
 .dxg-tooltip text{
   font-family: "Raleway", sans-serif !important;
+}
+
+.table .thead-dark th {
+  background-color: #2b3030;
 }
 
 #toggleProceses, #toggleNetstat {
