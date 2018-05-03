@@ -132,16 +132,8 @@ class DashboardController extends Controller
    */
   public function getNumberOfProcesses(){
 
-    $proc_count = 0;
-	  $dh = opendir('/proc');
-
-	  while ($dir = readdir($dh)){
-      if (is_dir('/proc/' . $dir)){
-        if (preg_match('/^[0-9]+$/', $dir)){
-          $proc_count ++;
-			  }
-		  }
-	  }
+    $proc_count = shell_exec('top -bn 1 | wc -l');
+    $proc_count = (int)$proc_count - 8;
 
 	  return $proc_count;
 
