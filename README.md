@@ -88,3 +88,7 @@ php artisan migrate:refresh --seed
 -
 
 # Instalando ELK partiendo de un Ubuntu 18.04 recién instalado y actualizado
+
+```
+https://linuxconfig.org/install-elk-on-ubuntu-18-04-bionic-beaver-linux
+```
