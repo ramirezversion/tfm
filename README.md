@@ -5,8 +5,29 @@ sudo apt-get update
 sudo apt-get upgrade
 
 apt-get update
+apt-get install apache2
+apt-get install mysql-server
+
+For Raspbian
+In the file sudo nano /etc/apt/sources.list at the end we add:
+deb http://mirrordirector.raspbian.org/raspbian/ buster main contrib non-free rpi
+
 apt-get install php7.1 php7.1-mcrypt php7.1-xml php7.1-gd php7.1-opcache php7.1-mbstring php7.1-mysql
 sudo apt-get install libapache2-mod-php7.1
+```
+
+## Instalar phpmyadmin
+
+```
+sudo apt-get install phpmyadmin
+sudo apt-get install php7.1-mbstring php-gettext
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+
+
+sudo a2enmod ssl
+
 ```
 
 ## Instalar nodejs
@@ -36,15 +57,7 @@ composer require "laravelcollective/html":"^5.4.0"
 php artisan make:controller MessagesController
 ```
 
-## Instalar phpmyadmin
 
-```
-sudo apt-get install phpmyadmin
-sudo apt-get install php7.1-mbstring php-gettext
-sudo phpenmod mcrypt
-sudo phpenmod mbstring
-sudo systemctl restart apache2
-```
 
 ## Problemas con el login en phpmyadmin con root
 
