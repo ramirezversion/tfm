@@ -129,6 +129,8 @@ sudo service logstash start
 
 
 --
+sudo apt-get install oracle-java8-jdk
+
 $ sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-5.5.2.deb
 $ sudo dpkg -i logstash-5.5.2.deb
 
