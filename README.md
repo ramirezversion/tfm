@@ -101,8 +101,37 @@ php artisan migrate:refresh --seed
 
 -
 
-# Instalando ELK partiendo de un Ubuntu 18.04 recién instalado y actualizado
+# Instalando ELK en la raspberry y actualizado
 
 ```
-https://linuxconfig.org/install-elk-on-ubuntu-18-04-bionic-beaver-linux
+https://logz.io/blog/elk-stack-raspberry-pi/
+sudo apt-get install default-jre
+
+sudo mkdir /usr/share/elasticsearch
+cd /usr/share/elasticsearch
+sudo wget https://packages.elastic.co/GPG-KEY-elasticsearch
+sudo apt-get install elasticsearch
+
+This retrieves the latest ElasticSearch package for our use and installs it
+sudo nano /etc/elasticsearch/elasticsearch.yml
+
+sudo service elasticsearch restart
+
+
+
+-- Así no funciona
+sudo apt-get install apt-transport-https
+echo “deb https://artifacts.elastic.co/packages/5.x/apt stable main” | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install logstash
+sudo service logstash start
+
+
+--
+$ sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-5.5.2.deb
+$ sudo dpkg -i logstash-5.5.2.deb
+
+
+
 ```
