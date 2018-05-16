@@ -27,6 +27,7 @@ sudo systemctl restart apache2
 
 
 sudo a2enmod ssl
+sudo a2enmod rewrite
 
 ```
 
