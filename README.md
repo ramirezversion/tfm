@@ -104,11 +104,18 @@ php artisan migrate:refresh --seed
 # Instalando ELK en la raspberry y actualizado
 
 ```
-https://logz.io/blog/elk-stack-raspberry-pi/
-sudo apt-get install default-jre
+https://logz.io/blog/elk-stack-raspberry-pi/  - no instalar el java así.
+
+apt-get update
+apt-get install openjdk-8-jre-headless -y
+apt-get install openjdk-8-jdk-headless -y
+java -version
 
 sudo mkdir /usr/share/elasticsearch
 cd /usr/share/elasticsearch
+
+dpkg -i logstash-5.5.2.deb
+
 sudo wget https://packages.elastic.co/GPG-KEY-elasticsearch
 sudo apt-get install elasticsearch
 
@@ -118,29 +125,5 @@ sudo nano /etc/elasticsearch/elasticsearch.yml
 sudo service elasticsearch restart
 
 
-
--- Así no funciona
-sudo apt-get install apt-transport-https
-echo “deb https://artifacts.elastic.co/packages/5.x/apt stable main” | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install logstash
-sudo service logstash start
-
-
---
-sudo apt-get install oracle-java8-jdk
-
-$ sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-5.5.2.deb
-$ sudo dpkg -i logstash-5.5.2.deb
-
-$ sudo apt-get install ant
-$ sudo git clone https://github.com/jnr/jffi.git
-$ cd jffi
-$ sudo ant jar
-$ cp build/jni/libjffi-1.2.so /usr/share/logstash/vendor/jruby/lib/jni/arm-Linux
-(when the .so file is not generated, delete the complete jffi folder and reinstall again)
-$ cd /usr/share/logstash/vendor/jruby/lib
-$ sudo zip -g jruby-complete-1.7.11.jar jni/arm-Linux/libjffi-1.2.so
 
 ```
