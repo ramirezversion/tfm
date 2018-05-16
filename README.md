@@ -132,6 +132,13 @@ sudo service logstash start
 $ sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-5.5.2.deb
 $ sudo dpkg -i logstash-5.5.2.deb
 
-
+$ sudo apt-get install ant
+$ sudo git clone https://github.com/jnr/jffi.git
+$ cd jffi
+$ sudo ant jar
+$ cp build/jni/libjffi-1.2.so /usr/share/logstash/vendor/jruby/lib/jni/arm-Linux
+(when the .so file is not generated, delete the complete jffi folder and reinstall again)
+$ cd /usr/share/logstash/vendor/jruby/lib
+$ sudo zip -g jruby-complete-1.7.11.jar jni/arm-Linux/libjffi-1.2.so
 
 ```
