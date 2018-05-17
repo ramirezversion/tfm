@@ -104,26 +104,122 @@ php artisan migrate:refresh --seed
 # Instalando ELK en la raspberry y actualizado
 
 ```
-https://logz.io/blog/elk-stack-raspberry-pi/  - no instalar el java así.
+https://thesecuritystoic.com/2017/08/home-security-iii-elk-on-a-raspberry-pi/
+
 
 apt-get update
 apt-get install openjdk-8-jre-headless -y
 apt-get install openjdk-8-jdk-headless -y
 java -version
 
-sudo mkdir /usr/share/elasticsearch
-cd /usr/share/elasticsearch
 
-dpkg -i logstash-5.5.2.deb
 
-sudo wget https://packages.elastic.co/GPG-KEY-elasticsearch
-sudo apt-get install elasticsearch
+Download the ElasticSearch Debian package from their website, and install. For this tutorial we use the 5.5.2 version.
 
-This retrieves the latest ElasticSearch package for our use and installs it
-sudo nano /etc/elasticsearch/elasticsearch.yml
+$ sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.2.deb
+$ sudo dpkg -i elasticsearch-5.5.2.deb
+1.3 Edit the file /etc/elasticsearch/elasticsearch.yml and uncomment and modify the cluster.name, network.host and http.port settings as follows:
 
-sudo service elasticsearch restart
+$ sudo nano /etc/elasticsearch/elasticsearch.yml
+cluster.name: (Whatever name you want)
+network.host: 127.0.0.1
+http.port: 9200
+1.4 Start it up
 
+$ sudo service elasticsearch start
+1.5 Check if it started
+
+$ sudo service elasticsearch status
+1.6 If failed with an error ‘Could not reserve enough space for XXXKB object heap’, go to /etc/elasticsearch, open jvm.options and edit the following two lines:
+
+-Xms2g change to -> -Xms200m
+-Xmx2g change to -> -Xms500m
+Then start elasticsearch again :
+
+$ sudo service elasticsearch restart
+It should now say active (running). That’s one down, two to go!
+
+
+
+Logstash
+Logstash will be our data processing application that can put all of our data into ElasticSearch for searching and analytics. It is essentially a big pipeline that takes input from different sources and transforms it for ElasticSearch.
+
+1.1 We want to download the latest logstash debian package from the Elastic website and install it. For this tutorial we use the 5.5.2 version.
+
+$ sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-5.5.2.deb
+$ sudo dpkg -i logstash-5.5.2.deb
+
+
+1.2 We also need to setup the JFFI code for our ARM chip:
+
+$ sudo apt-get install ant
+$ sudo git clone https://github.com/jnr/jffi.git
+$ cd jffi
+$ sudo ant jar
+$ sudo cp build/jni/libjffi-1.2.so /usr/share/logstash/vendor/jruby/lib/jni/arm-Linux
+(when the .so file is not generated, delete the complete jffi folder and reinstall again)
+$ cd /usr/share/logstash/vendor/jruby/lib
+$ sudo zip -g jruby-complete-1.7.11.jar jni/arm-Linux/libjffi-1.2.so
+
+
+1.3 We want to do the same as with Elasticsearch, by starting the service and checking the status
+
+$ sudo service logstash start
+$ sudo service logstash status
+
+1.4 The output of the last command should say active (running), I have not encountered any errors in my installation. If they do occur, try to google the errorcode to see what you can do to fix it.
+
+Kibana
+1.1 First, we need to download the kibana package we need. For this tutorial we use the Linux 32-Bit 5.5.2 version.
+
+$ sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-5.5.2-linux-x86.tar.gz
+1.2 Untar the downloaded file
+
+$ sudo tar –xzf kibana-5.5.2-linux-x86.tar.gz
+1.3 Move the untared files to the kibana directory
+
+$ sudo mkdir /opt/kibana/
+$ sudo mv kibana-5.5.2-linux-x86/ /opt/kibana/
+1.4 Now, we need to make the kibana package compatible with the ARM chip we have on the Raspberry Pi, as the standard Kibana package is made for Intel chips. We can do this by installing the latest ARM nodejs version:
+
+$ sudo wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2-linux-armv6l.tar.gz
+$ tar -xzf node-v6.10.2-linux-armv6l.tar.gz
+1.5 Now that we have the nodejs files untarred, we need to make sure they replace our current node files. We can do this as follows:
+
+$ sudo cp node-v6.10.2-linux-armv6l/bin/node /usr/local/bin/node
+$ sudo cp node-v6.10.2-linux-armv6l/bin/npm /usr/local/bin/npm
+1.6 Now we need to make our new ARM node files linked to the node files kibana uses. We first need to backup the original kibana node/npm files and then link them, as follows:
+
+$ sudo mv /opt/kibana/node/bin/node /opt/kibana/node/bin/node.orig
+$ sudo mv /opt/kibana/node/bin/npm /opt/kibana/node/bin/npm.orig
+$ sudo ln -s /usr/local/bin/node /opt/kibana/node/bin/node
+$ sudo ln -s /usr/local/bin/npm /opt/kibana/node/bin/npm
+1.7 Before we start kibana, we have to make sure it uses the right settings.
+
+$ sudo nano /opt/kibana/config/kibana.yml
+Uncomment and edit the following lines in the file:
+
+server.host: "127.0.0.1"
+elasticsearch.url: http://127.0.0.1:9200
+Remove the # at the front of the server.port setting found at the top of the file
+1.8 Next, we need to add Kibana to our systemd folder.
+
+$ sudo nano /etc/systemd/system/kibana.service
+And add the following lines:
+
+[Unit]
+Description=Kibana
+
+[Service]
+ExecStart=/opt/kibana/bin/kibana
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
+1.9 Now, we can start kibana and check its status
+
+$ sudo service kibana start
+$ sudo service kibana status
 
 
 ```
