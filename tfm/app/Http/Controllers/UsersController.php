@@ -126,4 +126,14 @@ class UsersController extends Controller
 
     }
 
+    /**
+     *
+     */
+    public function getKibana(){
+
+      // Return the result of the query to the view to print the results
+      return view('users.kibana');
+
+    }
+
 }
