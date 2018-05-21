@@ -46,8 +46,13 @@
     </p>
 
     <p class="p_separated">
-      <strong>Logins log:</strong><br>
+      <strong>Logins:</strong><br>
       This is the log of all the logins succeded or attempted to the system. The <strong>admin</strong> user will see all logins while the <strong>readonly</strong> user will only see its own.
+    </p>
+
+    <p class="p_separated">
+      <strong>Log Tool:</strong><br>
+      In this section you will find a full integrated ELK stack to do all the log analysis job.
     </p>
 
 @endsection
