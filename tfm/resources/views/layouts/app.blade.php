@@ -21,7 +21,7 @@
 
           <div class="row">
 
-            @if(Route::current()->getName() == 'loginregister')
+            @if(Route::current()->getName() == 'loginregister' || Route::current()->getName() == 'kibana')
 
               <div class="col-md-12 col-lg-12">
                 @include('inc.messages')
