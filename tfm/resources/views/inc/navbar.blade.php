@@ -16,7 +16,10 @@
         <a class="nav-link" href="/broconfig">Bro Config</a>
       </li>
       <li class="nav-item {{Request::is('loginregister') ? 'active' : ''}}">
-        <a class="nav-link" href="/loginregister">Logins log</a>
+        <a class="nav-link" href="/loginregister">Logins</a>
+      </li>
+      <li class="nav-item {{Request::is('kibana') ? 'active' : ''}}">
+        <a class="nav-link" href="/kibana">Log Tool</a>
       </li>
     </ul>
 
