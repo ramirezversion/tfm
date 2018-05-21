@@ -101,7 +101,7 @@ php artisan migrate:refresh --seed
 
 -
 
-# Instalando ELK en la raspberry y actualizado
+# Instalando ELK en la raspberry y actualizado pero no va fino. Se separa en dos.
 
 ```
 https://thesecuritystoic.com/2017/08/home-security-iii-elk-on-a-raspberry-pi/
@@ -194,6 +194,8 @@ $ sudo mv /opt/kibana/node/bin/node /opt/kibana/node/bin/node.orig
 $ sudo mv /opt/kibana/node/bin/npm /opt/kibana/node/bin/npm.orig
 $ sudo ln -s /usr/local/bin/node /opt/kibana/node/bin/node
 $ sudo ln -s /usr/local/bin/npm /opt/kibana/node/bin/npm
+
+
 1.7 Before we start kibana, we have to make sure it uses the right settings.
 
 $ sudo nano /opt/kibana/config/kibana.yml
@@ -216,10 +218,144 @@ StandardOutput=null
 
 [Install]
 WantedBy=multi-user.target
+
 1.9 Now, we can start kibana and check its status
 
 $ sudo service kibana start
 $ sudo service kibana status
 
 
+```
+
+# Se separa ELK y se deja logstash solo en la raspberry para en envío de logs y ElasticSearch y Kibana en un server con más potencia
+
+La instalación del servidor se hace así
+https://linuxconfig.org/install-elk-on-ubuntu-18-04-bionic-beaver-linux
+
+
+instalar filebeat en la Raspberry
+```
+https://github.com/dam90/pibeats/blob/master/build_script.sh
+http://ict.renevdmark.nl/2016/07/05/elastic-beats-on-raspberry-pi/
+```
+
+Crea el servicio // no va fino filipino
+```
+pi@raspberrypi:/opt/filebeat $ sudo cat usr/lib/systemd/system/filebeat.service
+[Unit]
+Description=filebeat
+Documentation=https://www.elastic.co/guide/en/beats/filebeat/current/index.html
+Wants=userwork-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/opt/filebeat/filebeat -c /opt/filebeat/filebeat.yml -path.home /opt/filebeat -path.config /opt/filebeat -path.data /opt/filebeat -path.logs /opt/filebeat
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+sudo chown -R root:root /opt/filebeat/*
+```
+
+
+y luego `sudo systemctl enable filebeat` y `sudo systemctl start filebeat`
+
+
+El fichero de configuración y el modules
+
+```
+#=========================== Filebeat prospectors =============================
+filebeat.prospectors:
+- type: log
+
+  # Change to true to enable this prospector configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /var/log/*.log
+    - /var/log/auth.log
+    - /var/log/syslog
+    - /var/log/apache2/*
+
+  document-type: syslog
+
+
+#============================= Filebeat modules ===============================
+
+filebeat.config.modules:
+  # Glob pattern for configuration loading
+  enable: true
+  path: /opt/filebeat/modules.d/*.yml
+
+  # Set to true to enable config reloading
+#  reload.enabled: false
+
+  # Period on which files under path should be checked for changes
+  #reload.period: 10s
+
+
+#============================== Kibana =====================================
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "kibana.zero:80"
+
+
+#================================ Outputs =====================================
+
+# Configure what outputs to use when sending the data collected by the beat
+#-------------------------- Elasticsearch output ------------------------------
+output.elasticsearch:
+  hosts: "kibana.zero:9200"
+#  index: "pibeat-%{+yyyy.MM.dd}"
+
+#================================ Logging =====================================
+
+#logging.to_files: true
+#logging.to_syslog: false
+```
+
+```
+- module: system
+  # Syslog
+  syslog:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    var.paths: ["/var/log/syslog*"]
+
+    # Convert the timestamp to UTC. Requires Elasticsearch >= 6.1.
+    #var.convert_timezone: false
+
+  # Authorization logs
+  auth:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+    # Convert the timestamp to UTC. Requires Elasticsearch >= 6.1.
+    #var.convert_timezone: false
+```
+
+si haces un filebeat setup se instala en kibana todo el pack de dashboard y demás.
+
+
+en el ElasticSearch
+```
+sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install ingest-geoip
+
+sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install ingest-user-agent
 ```
