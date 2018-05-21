@@ -280,8 +280,9 @@ filebeat.prospectors:
     - /var/log/auth.log
     - /var/log/syslog
     - /var/log/apache2/*
+    - /var/log/mysql*
 
-  document-type: syslog
+  #document-type: syslog
 
 
 #============================= Filebeat modules ===============================
