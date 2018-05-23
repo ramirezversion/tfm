@@ -48,11 +48,7 @@ Info "Installing Critical Stack Agent"
 echo "
 echo \"#### Pulling feed update ####\"
 sudo -u critical-stack critical-stack-intel pull
-echo \"#### Applying the updates to the bro config ####\"
-broctl check
-broctl install
-echo \"#### Restarting bro ####\"
-broctl restart
+sudo systemctl restart bro-idspi
 cd /nsm/Loki/
 python ./loki.py --update
 " \ > /nsm/scripts/update

@@ -46,7 +46,8 @@ EnvironmentFile=-/etc/netsniff
 
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/netsniff-ng.service
-	systemctl enable netsniff-ng
+
+  systemctl enable netsniff-ng
 	systemctl daemon-reload
 	service netsniff-ng start
 }
