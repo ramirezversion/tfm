@@ -20,6 +20,20 @@ function Error {
   echo -e -n '\e[0m'
 }
 
+function install_bro_reporting()
+{
+Info "Bro Reporting Requirements"
+	pip install colorama
+#PYSUBNETREE
+	pip install pysubnettree
+#IPSUMDUMP
+	cd /opt/
+	wget http://www.read.seas.harvard.edu/~kohler/ipsumdump/ipsumdump-1.85.tar.gz
+	tar -zxvf ipsumdump-1.85.tar.gz
+	cd ipsumdump-1.85/
+	./configure && make && make install
+}
+
 
 function config_bro_scripts()
 {
@@ -36,4 +50,5 @@ Info "Configuring BRO scripts"
 	broctl deploy
 }
 
+install_bro_reporting
 config_bro_scripts
