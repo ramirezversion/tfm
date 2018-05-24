@@ -360,3 +360,10 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install ingest-geoip
 
 sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install ingest-user-agent
 ```
+
+
+
+En el broctl.cfg añadir esto para que saque los logs en json
+
+### Added for json log output
+broargs=-e 'redef LogAscii::use_json=T;'
