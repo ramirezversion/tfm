@@ -46,7 +46,8 @@ class DashboardController extends Controller
    */
   public function getNetstat(){
 
-    $net = shell_exec('sudo netstat -antup');
+    #$net = shell_exec('sudo netstat -antup');
+    $net = shell_exec('/var/www/tfm/network.sh');
     return (string)$net;
 
   }
