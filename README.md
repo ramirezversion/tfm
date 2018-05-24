@@ -12,11 +12,11 @@ For Raspbian
 In the file sudo nano /etc/apt/sources.list at the end we add:
 deb http://mirrordirector.raspbian.org/raspbian/ buster main contrib non-free rpi
 
-apt-get install php7.1 php7.1-mcrypt php7.1-xml php7.1-gd php7.1-opcache php7.1-mbstring php7.1-mysql
+sudo apt-get install php7.1 php7.1-mcrypt php7.1-xml php7.1-gd php7.1-opcache php7.1-mbstring php7.1-mysql
 sudo apt-get install libapache2-mod-php7.1
 
 
-apt-get install apache mysql-server php7.0 php7.0-mcrypt php7.0-xml php7.0-gd php7.0-opcache php7.0-mbstring php7.0-mysql libapache2-mod-php7.0 phpmyadmin php7.0-mbstring php-gettext
+sudo apt-get php7.0 php7.0-mcrypt php7.0-xml php7.0-gd php7.0-opcache php7.0-mbstring php7.0-mysql libapache2-mod-php7.0 phpmyadmin php7.0-mbstring php-gettext
 
 
 ```
