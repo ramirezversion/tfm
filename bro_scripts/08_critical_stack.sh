@@ -44,6 +44,9 @@ Info "Installing Critical Stack Agent"
 	echo "Deploying and starting BroIDS"
 		broctl deploy
 		broctl cron enable
+
+    sudo echo "critical-stack ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/99-critical-stack
+
 		#Create update script
 echo "
 echo \"#### Pulling feed update ####\"
