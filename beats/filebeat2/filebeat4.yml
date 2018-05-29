@@ -1,0 +1,191 @@
+#=========================== Filebeat prospectors =============================
+filebeat.prospectors:
+- type: log
+
+  # Change to true to enable this prospector configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /var/log/boot*
+    - /var/log/daemon*
+    - /var/log/debug*
+    - /var/log/dpkg*
+    - /var/log/faillog*
+    - /var/log/kern*
+    - /var/log/lastlog*
+    - /var/log/messages*
+    - /var/log/user*
+    - /var/log/Xorg*
+
+  exclude_files: ['\.gz$']
+
+#  document-type: syslog
+
+# Bro current log 
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/conn.log"]
+  tags: ["bro-conn"]
+  fields:
+    bro: conn
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/dns.log"]
+  tags: ["bro-dns"]
+  fields:
+    bro: dns
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/files.log"]
+  tags: ["bro-files"]
+  fields:
+    bro: files
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/http.log"]
+  tags: ["bro-http"]
+  fields:
+    bro: http
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/notice.log"]
+  tags: ["bro-notice"]
+  fields:
+    bro: notice
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/ssl.log"]
+  tags: ["bro-ssl"]
+  fields:
+    bro: ssl
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/stats.log"]
+  tags: ["bro-stats"]
+  fields:
+    bro: stats
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/software.log"]
+  tags: ["bro-software"]
+  fields:
+    bro: software
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/x509.log"]
+  tags: ["bro-x509"]
+  fields:
+    bro: x509
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/intel.log"]
+  tags: ["bro-intel"]
+  fields:
+    bro: intel
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+#============================= Filebeat modules ===============================
+
+filebeat.config.modules:
+  # Glob pattern for configuration loading
+  enable: true
+  path: /opt/filebeat/modules.d/*.yml
+
+  # Set to true to enable config reloading
+#  reload.enabled: false
+
+  # Period on which files under path should be checked for changes
+  #reload.period: 10s
+
+#============================== Kibana =====================================
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "kibana.zero:80"
+
+
+#================================ Outputs =====================================
+
+# Configure what outputs to use when sending the data collected by the beat
+#-------------------------- Elasticsearch output ------------------------------
+#output.elasticsearch:
+#  hosts: "kibana.zero:9200"
+#  index: "pibeat-%{+yyyy.MM.dd}"
+
+output.logstash:
+  hosts: "kibana.zero:5044"
+
+
+#================================ Logging =====================================
+
+#logging.to_files: true
+#logging.to_syslog: false

@@ -1,0 +1,136 @@
+#=========================== Filebeat prospectors =============================
+filebeat.prospectors:
+
+# Bro current log 
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/conn.log"]
+  tags: ["bro-conn"]
+  fields:
+    bro: conn
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/dns.log"]
+  tags: ["bro-dns"]
+  fields:
+    bro: dns
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/files.log"]
+  tags: ["bro-files"]
+  fields:
+    bro: files
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/http.log"]
+  tags: ["bro-http"]
+  fields:
+    bro: http
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/notice.log"]
+  tags: ["bro-notice"]
+  fields:
+    bro: notice
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/ssl.log"]
+  tags: ["bro-ssl"]
+  fields:
+    bro: ssl
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/stats.log"]
+  tags: ["bro-stats"]
+  fields:
+    bro: stats
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/software.log"]
+  tags: ["bro-software"]
+  fields:
+    bro: software
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/x509.log"]
+  tags: ["bro-x509"]
+  fields:
+    bro: x509
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+- type: log
+  enabled: true
+  paths: ["/var/log/bro/current/intel.log"]
+  tags: ["bro-intel"]
+  fields:
+    bro: intel
+    geobro_resp:
+    geobro_orig:
+  fields_under_root: true
+  json.keys_under_root: true
+  json.message_key: message
+
+
+#================================ Outputs =====================================
+
+# Configure what outputs to use when sending the data collected by the beat
+#-------------------------- Elasticsearch output ------------------------------
+
+output.logstash:
+  hosts: "kibana.zero:5044"
+  index: "brobeat-%{+yyyy.MM.dd}"

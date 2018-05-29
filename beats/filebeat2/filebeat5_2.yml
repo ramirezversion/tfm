@@ -1,0 +1,53 @@
+#=========================== Filebeat prospectors =============================
+filebeat.prospectors:
+- type: log
+
+  # Change to true to enable this prospector configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /var/log/boot*
+    - /var/log/daemon*
+    - /var/log/debug*
+    - /var/log/dpkg*
+    - /var/log/faillog*
+    - /var/log/kern*
+    - /var/log/lastlog*
+    - /var/log/messages*
+    - /var/log/user*
+    - /var/log/Xorg*
+
+  exclude_files: ['\.gz$']
+
+#============================= Filebeat modules ===============================
+
+filebeat.config.modules:
+  # Glob pattern for configuration loading
+  enable: true
+  path: /opt/filebeat2/modules.d/*.yml
+
+  # Set to true to enable config reloading
+#  reload.enabled: false
+
+  # Period on which files under path should be checked for changes
+  #reload.period: 10s
+
+#============================== Kibana =====================================
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "kibana.zero:80"
+
+#================================ Outputs =====================================
+
+# Configure what outputs to use when sending the data collected by the beat
+#-------------------------- Elasticsearch output ------------------------------
+output.elasticsearch:
+  hosts: "kibana.zero:9200"
