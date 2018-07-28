@@ -1,4 +1,4 @@
-function getHostname($http, $scope){
+function getSystemConfig($http, $scope){
 
   $http.get("/apibro/broconfig/fullsystem")
       .then(function successCallback(response){
@@ -17,6 +17,7 @@ var BroApp = angular.module('BroApp', ['dx']);
 
 BroApp.controller('BroController', function BroController($scope, $http) {
 
-    var myvar = setInterval(function(){ getHostname($http, $scope) }, 1000);
+    //var myvar = setInterval(function(){ getHostname($http, $scope) }, 1000);
+    getHostname($http, $scope);
 
 });
