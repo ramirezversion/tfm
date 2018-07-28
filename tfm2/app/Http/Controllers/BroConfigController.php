@@ -75,8 +75,8 @@ class BroConfigController extends Controller
   public function getMaxPcapSize(){
 
     $pcapsize = shell_exec('more /nsm/scripts/cleanup | awk \'NR == 3 {print substr($1,13)}\'');
-    $pcapsize = $pcapsize/1000000;
-    $pcapsize .= " Gb";
+    $pcapsize = (double)$pcapsize/1000000;
+    (string)$pcapsize .= " Gb";
     return (string)$pcapsize;
 
   }
@@ -88,8 +88,8 @@ class BroConfigController extends Controller
   public function getMaxFileExtractedSize(){
 
     $fileextractedsize = shell_exec('more /nsm/scripts/cleanup | awk \'NR == 4 {print substr($1,16)}\'');
-    $fileextractedsize = $fileextractedsize/1000000;
-    $fileextractedsize .= " Gb";
+    $fileextractedsize = (double)$fileextractedsize/1000000;
+    (string)$fileextractedsize .= " Gb";
     return (string)$fileextractedsize;
 
   }
