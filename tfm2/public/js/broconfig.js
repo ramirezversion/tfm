@@ -35,5 +35,6 @@ BroApp.controller('BroController', function BroController($scope, $http) {
 
     getSystemConfig($http, $scope);
     var myvar = setInterval(function(){ getSystemTime($http, $scope) }, 1000);
+    var myvar2 = setInterval(function(){ getSystemConfig($http, $scope) }, 10000);
 
 });
