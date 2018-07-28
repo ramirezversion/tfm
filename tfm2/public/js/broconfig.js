@@ -5,6 +5,8 @@ function getSystemConfig($http, $scope){
         $scope.hostname = response.data.hostname;
         $scope.time = response.data.time;
         $scope.updateTime = response.data.updateTime;
+        $scope.pcapsize = response.data.pcapsize;
+        $scope.fileextractedsize = response.data.fileextractedsize;
         $scope.brostatus = response.data.brostatus;
       }, function errorCallback(response){
         console.log("Unable to perform get request");

@@ -56,6 +56,21 @@
           </tbody>
         </table>
 
+        <table id="tableSystem3" class="table table-sm table-hover table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Max. size for PCAP</th>
+              <th scope="col">Max. size for extracted files</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">@{{pcapsize}}</th>
+              <th scope="row">@{{fileextractedsize}}</th>
+            </tr>
+          </tbody>
+        </table>
+
       </p>
 
     </div>

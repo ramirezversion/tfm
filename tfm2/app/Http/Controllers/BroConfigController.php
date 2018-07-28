@@ -28,6 +28,8 @@ class BroConfigController extends Controller
     $broconfig->hostname = $this->getHostname();
     $broconfig->time = $this->getTime();
     $broconfig->updateTime = $this->getUpdateTime();
+    $broconfig->pcapsize = this->getMaxPcapSize();
+    $broconfig->fileextractedsize = this->getMaxFileExtractedSize();
     $broconfig->brostatus = $this->getBroStatus();
 
     return $broconfig;
@@ -63,6 +65,32 @@ class BroConfigController extends Controller
 
     $time = shell_exec('date "+%d/%m/%y - %H:%M:%S"');
     return (string)$time;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getMaxPcapSize(){
+
+    $pcapsize = shell_exec('more /nsm/scripts/cleanup | awk \'NR == 3 {print substr($1,13)}\'');
+    $pcapsize = $pcapsize/1000000;
+    $pcapsize .= " Gb";
+    return (string)$pcapsize;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getMaxFileExtractedSize(){
+
+    $fileextractedsize = shell_exec('more /nsm/scripts/cleanup | awk \'NR == 4 {print substr($1,16)}\'');
+    $fileextractedsize = $fileextractedsize/1000000;
+    $fileextractedsize .= " Gb";
+    return (string)$fileextractedsize;
 
   }
 
