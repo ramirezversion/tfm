@@ -61,7 +61,7 @@ class BroConfigController extends Controller
    */
   public function getTime(){
 
-    $time = shell_exec('date "+%H:%M:%S   %d/%m/%y"');
+    $time = shell_exec('date "+%d/%m/%y - %H:%M:%S"');
     return (string)$time;
 
   }
