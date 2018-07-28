@@ -94,7 +94,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><iframe src="https://raspberry.zero/pcap" style="width:100%;"></iframe></th>
+                <th scope="row"><iframe id="iframepcap" src="https://raspberry.zero/pcap" style="width:100%; border: 0px none;"></iframe></th>
               </tr>
             </tbody>
           </table>
@@ -109,7 +109,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><iframe src="https://raspberry.zero/extracted" style="width:100%;"></iframe></th>
+                <th scope="row"><iframe id="iframeextracted" src="https://raspberry.zero/extracted" style="width:100%; border: 0px none;"></iframe></th>
               </tr>
             </tbody>
           </table>
