@@ -18,4 +18,32 @@ class BroConfigController extends Controller
     return view('users.broconfig');
 
   }
+
+  /**
+   *
+   */
+  public function getFullSystem(){
+
+    $broconfig = new BroConfig;
+    $broconfig->hostname = $this->getHostname();
+
+    return $broconfig;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getHostname(){
+
+    #$net = shell_exec('sudo netstat -antup');
+    #chmod u+s /bin/netstat
+    $hostname = shell_exec('hostname');
+    return (string)$hostname;
+
+  }
+
+
+
 }
