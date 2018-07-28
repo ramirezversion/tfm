@@ -83,6 +83,21 @@
           </table>
         </p>
 
+        <p>
+          <table id="tableSystem4" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">PCAP Files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><iframe src="https://localhost/pcap"></iframe></th>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+
       </div>
     </p>
 
