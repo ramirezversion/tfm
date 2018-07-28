@@ -22,6 +22,7 @@ Route::get('/dashboard', ['middleware' => 'auth', 'as' => 'dashboard', 'uses' =>
 Route::get('/broconfig', ['middleware' => 'auth', 'as' => 'broconfig', 'uses' => 'BroConfigController@getBroconfig']);
 Route::get('/kibana', ['middleware' => 'auth', 'as' => 'kibana', 'uses' => 'UsersController@getKibana']);
 Route::get('/loginregister', ['middleware' => 'auth', 'as' => 'loginregister', 'uses' => 'UsersController@getLoginRegisters']);
+Route::get('/pcap', ['middleware' => 'auth', 'as' => 'loginregister']);
 
 // Route group for the ApiRest to get data for the dashboard
 Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
