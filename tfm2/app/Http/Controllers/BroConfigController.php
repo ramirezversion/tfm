@@ -32,6 +32,7 @@ class BroConfigController extends Controller
     $broconfig->pcapsizeused = $this->getMaxPcapSizeUsed();
     $broconfig->fileextractedsize = $this->getMaxFileExtractedSize();
     $broconfig->fileextractedsizeused = $this->getMaxFileExtractedSizeUsed();
+    $broconfig->networks = $this->getBroNetworks();
     $broconfig->brostatus = $this->getBroStatus();
 
     return $broconfig;
@@ -67,6 +68,17 @@ class BroConfigController extends Controller
 
     $time = shell_exec('date "+%d/%m/%y - %H:%M:%S"');
     return (string)$time;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getBroNetworks(){
+
+    $networks = shell_exec('cat /etc/bro/networks.cfg | awk \'NR >4 {print $1}\'');
+    return (string)$networks;
 
   }
 

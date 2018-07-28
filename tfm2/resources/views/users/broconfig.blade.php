@@ -50,12 +50,14 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Bro Status</th>
+                <th scope="col">Bro Networks</th>
                 <th scope="col">Last Update Time</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">@{{brostatus}}</th>
+                <th scope="row">@{{networks}}</th>
                 <th scope="row">@{{updateTime}}</th>
               </tr>
             </tbody>
