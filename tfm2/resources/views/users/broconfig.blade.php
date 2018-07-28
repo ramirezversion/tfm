@@ -57,7 +57,7 @@
             <tbody>
               <tr>
                 <th scope="row">@{{brostatus}}</th>
-                <th scope="row">@{{networks}}</th>
+                <th scope="row"><pre>@{{networks}}</pre></th>
                 <th scope="row">@{{updateTime}}</th>
               </tr>
             </tbody>
