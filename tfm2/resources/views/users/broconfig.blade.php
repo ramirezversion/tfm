@@ -28,55 +28,61 @@
     <p>
       <div ng-app="BroApp" ng-controller="BroController">
 
-        <table id="tableSystem1" class="table table-sm table-hover table-striped table-bordered">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Hostname</th>
-              <th scope="col">System Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">@{{hostname}}</th>
-              <th scope="row">@{{time}}</th>
-            </tr>
-          </tbody>
-        </table>
+        <p>
+          <table id="tableSystem1" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Hostname</th>
+                <th scope="col">System Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">@{{hostname}}</th>
+                <th scope="row">@{{time}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </p>
 
-        <table id="tableSystem2" class="table table-sm table-hover table-striped table-bordered">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Bro Status</th>
-              <th scope="col">Last Update Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">@{{brostatus}}</th>
-              <th scope="row">@{{updateTime}}</th>
-            </tr>
-          </tbody>
-        </table>
+        <p>
+          <table id="tableSystem2" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Bro Status</th>
+                <th scope="col">Last Update Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">@{{brostatus}}</th>
+                <th scope="row">@{{updateTime}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </p>
 
-        <table id="tableSystem3" class="table table-sm table-hover table-striped table-bordered">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Max. size for PCAP</th>
-              <th scope="col">Used size for PCAP</th>
-              <th scope="col">Max. size for extracted files</th>
-              <th scope="col">Used size for extracted files</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">@{{pcapsize}}</th>
-              <th scope="row">@{{pcapsizeused}}</th>
-              <th scope="row">@{{fileextractedsize}}</th>
-              <th scope="row">@{{fileextractedsizeused}}</th>
-            </tr>
-          </tbody>
-        </table>
-
+        <p>
+          <table id="tableSystem3" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Max. size for PCAP</th>
+                <th scope="col">Used size for PCAP</th>
+                <th scope="col">Max. size for extracted files</th>
+                <th scope="col">Used size for extracted files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">@{{pcapsize}}</th>
+                <th scope="row">@{{pcapsizeused}}</th>
+                <th scope="row">@{{fileextractedsize}}</th>
+                <th scope="row">@{{fileextractedsizeused}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        
       </div>
     </p>
 
