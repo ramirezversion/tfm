@@ -26,19 +26,36 @@
       <p>
         <div ng-app="BroApp" ng-controller="BroController">
 
-        <table id="tableSystem" class="table table-sm table-hover table-striped table-bordered">
+        <table id="tableSystem1" class="table table-sm table-hover table-striped table-bordered">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Hostname</th>
+              <th scope="col">System Time</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">@{{hostname}}</th>
+              <th scope="row">@{{time}}</th>
             </tr>
           </tbody>
         </table>
-        
+
+        <table id="tableSystem2" class="table table-sm table-hover table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Bro Status</th>
+              <th scope="col">Last Update Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">@{{brostatus}}</th>
+              <th scope="row">@{{updateTime}}</th>
+            </tr>
+          </tbody>
+        </table>
+
       </p>
 
     </div>

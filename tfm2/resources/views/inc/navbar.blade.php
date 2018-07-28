@@ -13,7 +13,7 @@
         <a class="nav-link" href="/dashboard">Dashboard</a>
       </li>
       <li class="nav-item {{Request::is('broconfig') ? 'active' : ''}}">
-        <a class="nav-link" href="/broconfig">Bro Config</a>
+        <a class="nav-link" href="/broconfig">System Config</a>
       </li>
       <li class="nav-item {{Request::is('loginregister') ? 'active' : ''}}">
         <a class="nav-link" href="/loginregister">Logins</a>

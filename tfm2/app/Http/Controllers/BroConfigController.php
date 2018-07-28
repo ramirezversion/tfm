@@ -26,6 +26,9 @@ class BroConfigController extends Controller
 
     $broconfig = new BroConfig;
     $broconfig->hostname = $this->getHostname();
+    $broconfig->time = $this->getTime();
+    $broconfig->updateTime = $this->getUpdateTime();
+    $broconfig->brostatus = $this->getBroStatus();
 
     return $broconfig;
 
@@ -37,13 +40,42 @@ class BroConfigController extends Controller
    */
   public function getHostname(){
 
-    #$net = shell_exec('sudo netstat -antup');
-    #chmod u+s /bin/netstat
     $hostname = shell_exec('hostname');
     return (string)$hostname;
 
   }
 
+  /**
+   *
+   */
+  public function getTime(){
+
+    $time = shell_exec('date "+%H:%M:%S   %d/%m/%y"');
+    return (string)$time;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getUpdateTime(){
+
+    $updateTime = shell_exec('ls -al /opt/critical-stack/frameworks/intel/ | awk 'END {print $6,$7,$8}'');
+    return (string)$updateTime;
+
+  }
+
+
+  /**
+   *
+   */
+  public function getBroStatus(){
+
+    $bro_status = shell_exec('sudo broctl status | awk 'END {print $4}'');
+    return (string)$bro_status;
+
+  }
 
 
 }
