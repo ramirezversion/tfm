@@ -98,6 +98,21 @@
           </table>
         </p>
 
+        <p>
+          <table id="tableSystem5" class="table table-sm table-hover table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Extracted Files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><iframe src="https://raspberry.zero/extracted" style="width:100%;"></iframe></th>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+
       </div>
     </p>
 
