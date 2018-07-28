@@ -17,7 +17,7 @@ var BroApp = angular.module('BroApp', ['dx']);
 
 BroApp.controller('BroController', function BroController($scope, $http) {
 
-    var myvar = setInterval(function(){ getHostname($http, $scope) }, 1000);
-    setTimeout(() => { clearInterval(myvar); }, 5000);
+    var myvar = setInterval(function(){ getSystemConfig($http, $scope) }, 1000);
+    setTimeout(() => { clearInterval(myvar); }, 1500);
 
 });
