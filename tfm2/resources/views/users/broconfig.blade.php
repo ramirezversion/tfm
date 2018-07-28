@@ -19,7 +19,7 @@
 
 
 @section('content')
-    <h1>Bro and system config</h1>
+    <h1>Bro and system configuration</h1>
 
     <p class="lead">This is the configuration of the IDS pi system.</p>
 
@@ -44,7 +44,7 @@
             </tbody>
           </table>
         </p>
-        <br />
+
         <p>
           <table id="tableSystem2" class="table table-sm table-hover table-striped table-bordered">
             <thead class="thead-dark">
@@ -61,7 +61,7 @@
             </tbody>
           </table>
         </p>
-        <br />
+
         <p>
           <table id="tableSystem3" class="table table-sm table-hover table-striped table-bordered">
             <thead class="thead-dark">
