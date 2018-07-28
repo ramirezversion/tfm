@@ -45,7 +45,6 @@
           </table>
         </p>
         <br />
-        <br />
         <p>
           <table id="tableSystem2" class="table table-sm table-hover table-striped table-bordered">
             <thead class="thead-dark">
@@ -62,7 +61,6 @@
             </tbody>
           </table>
         </p>
-        <br />
         <br />
         <p>
           <table id="tableSystem3" class="table table-sm table-hover table-striped table-bordered">
