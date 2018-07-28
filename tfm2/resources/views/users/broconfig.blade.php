@@ -92,7 +92,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><iframe src="https://localhost/pcap"></iframe></th>
+                <th scope="row"><iframe src="https://raspberry.zero/pcap"></iframe></th>
               </tr>
             </tbody>
           </table>
