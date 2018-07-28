@@ -28,8 +28,8 @@ class BroConfigController extends Controller
     $broconfig->hostname = $this->getHostname();
     $broconfig->time = $this->getTime();
     $broconfig->updateTime = $this->getUpdateTime();
-    $broconfig->pcapsize = this->getMaxPcapSize();
-    $broconfig->fileextractedsize = this->getMaxFileExtractedSize();
+    $broconfig->pcapsize = $this->getMaxPcapSize();
+    $broconfig->fileextractedsize = $this->getMaxFileExtractedSize();
     $broconfig->brostatus = $this->getBroStatus();
 
     return $broconfig;
