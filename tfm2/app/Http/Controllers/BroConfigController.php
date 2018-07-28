@@ -78,8 +78,7 @@ class BroConfigController extends Controller
   public function getBroNetworks(){
 
     $networks = shell_exec('cat /etc/bro/networks.cfg | awk \'NR >4 {print $1}\'');
-    $networks_list = explode( " " , $networks );
-    return (string)$networks_list;
+    return (string)$networks;
 
   }
 
