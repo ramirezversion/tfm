@@ -76,8 +76,7 @@ class BroConfigController extends Controller
 
     $pcapsize = shell_exec('cat /nsm/scripts/cleanup | awk \'NR == 3 {print substr($1,13)}\'');
     $pcapsize_float = floatval($pcapsize)/1000000;
-    //(string)$pcapsize .= " Gb";
-    return (string)$pcapsize;
+    return (string)$pcapsize_float." Gb";
 
   }
 
@@ -89,8 +88,7 @@ class BroConfigController extends Controller
 
     $fileextractedsize = shell_exec('cat /nsm/scripts/cleanup | awk \'NR == 4 {print substr($1,16)}\'');
     $fileextractedsize_float = floatval($fileextractedsize)/1000000;
-    //(string)$fileextractedsize .= " Gb";
-    return (string)$fileextractedsize_float;
+    return (string)$fileextractedsize_float." Gb";
 
   }
 
