@@ -90,12 +90,8 @@
                 <th scope="col">PCAP Files</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><iframe src="https://raspberry.zero/pcap"></iframe></th>
-              </tr>
-            </tbody>
           </table>
+          <iframe src="https://raspberry.zero/pcap"></iframe><
         </p>
 
       </div>
