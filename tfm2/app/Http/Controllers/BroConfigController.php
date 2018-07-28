@@ -29,7 +29,9 @@ class BroConfigController extends Controller
     $broconfig->time = $this->getTime();
     $broconfig->updateTime = $this->getUpdateTime();
     $broconfig->pcapsize = $this->getMaxPcapSize();
+    $broconfig->pcapsizeused = $this->getMaxPcapSizeUsed();
     $broconfig->fileextractedsize = $this->getMaxFileExtractedSize();
+    $broconfig->fileextractedsizeused = $this->getMaxFileExtractedSizeUsed();
     $broconfig->brostatus = $this->getBroStatus();
 
     return $broconfig;
@@ -84,11 +86,33 @@ class BroConfigController extends Controller
   /**
    *
    */
+  public function getMaxPcapSizeUsed(){
+
+    $pcapsizeused = shell_exec('du -h /nsm/pcap/ | awk \'{print $1}\'');
+    return (string)$pcapsizeused;
+
+  }
+
+
+  /**
+   *
+   */
   public function getMaxFileExtractedSize(){
 
     $fileextractedsize = shell_exec('cat /nsm/scripts/cleanup | awk \'NR == 4 {print substr($1,16)}\'');
     $fileextractedsize_float = floatval($fileextractedsize)/1000000;
     return (string)$fileextractedsize_float." Gb";
+
+  }
+
+
+  /**
+   *
+   */
+  public function getMaxFileExtractedSizeUsed(){
+
+    $fileextractedsizeused = shell_exec('du -h /nsm/bro/extracted | awk \'{print $1}\'');
+    return (string)$fileextractedsizeused;
 
   }
 

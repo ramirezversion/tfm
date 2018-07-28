@@ -19,12 +19,14 @@
 
 
 @section('content')
-    <h1>Bro config 777</h1>
+    <h1>Bro and system config</h1>
 
-    <h3>aqui algo</h3>
+    <p class="lead">This is the configuration of the IDS pi system.</p>
 
-      <p>
-        <div ng-app="BroApp" ng-controller="BroController">
+    <h3>Configuration</h3>
+
+    <p>
+      <div ng-app="BroApp" ng-controller="BroController">
 
         <table id="tableSystem1" class="table table-sm table-hover table-striped table-bordered">
           <thead class="thead-dark">
@@ -60,19 +62,22 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">Max. size for PCAP</th>
+              <th scope="col">Used size for PCAP</th>
               <th scope="col">Max. size for extracted files</th>
+              <th scope="col">Used size for extracted files</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">@{{pcapsize}}</th>
+              <th scope="row">@{{pcapsizeused}}</th>
               <th scope="row">@{{fileextractedsize}}</th>
+              <th scope="row">@{{fileextractedsizeused}}</th>
             </tr>
           </tbody>
         </table>
 
-      </p>
-
-    </div>
+      </div>
+    </p>
 
 @endsection
