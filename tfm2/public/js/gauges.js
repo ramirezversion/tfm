@@ -22,6 +22,7 @@ var GaugeDashApp = angular.module('GaugeDashApp', ['dx']);
 
 GaugeDashApp.controller('GaugeDashController', function GaugeDashController($scope, $http) {
 
+    getFullApiValues($http, $scope);
     var myvar = setInterval(function(){ getFullApiValues($http, $scope) }, 1000);
 
     var scale = {

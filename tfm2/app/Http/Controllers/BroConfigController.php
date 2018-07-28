@@ -34,6 +34,17 @@ class BroConfigController extends Controller
 
   }
 
+  /**
+   *
+   */
+  public function getApiTime(){
+
+    $broconfig = new BroConfig;
+    $broconfig->time = $this->getTime();
+
+    return $broconfig;
+
+  }
 
   /**
    *

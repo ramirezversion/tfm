@@ -39,5 +39,6 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
 // Route group for the ApiRest to get data for the bro config
 Route::group(['prefix' => 'apibro', 'middleware' => 'auth'], function(){
   Route::get('/broconfig/fullsystem', 'BroConfigController@getFullSystem');
+  Route::get('/broconfig/time', 'BroConfigController@getApiTime');
   Route::resource('broconfig', 'BroConfigController');
 });

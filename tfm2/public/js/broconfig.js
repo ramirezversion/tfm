@@ -13,12 +13,23 @@ function getSystemConfig($http, $scope){
 }
 
 
+function getSystemTime($http, $scope){
+
+  $http.get("/apibro/broconfig/time")
+      .then(function successCallback(response){
+        $scope.time = response.data.time;
+      }, function errorCallback(response){
+        console.log("Unable to perform get request");
+      });
+
+}
+
+
 var BroApp = angular.module('BroApp', ['dx']);
 
 BroApp.controller('BroController', function BroController($scope, $http) {
 
-    //var myvar = setInterval(function(){ getSystemConfig($http, $scope) }, 1000);
-    //setTimeout(() => { clearInterval(myvar); }, 1500);
     getSystemConfig($http, $scope);
+    var myvar = setInterval(function(){ getSystemTime($http, $scope) }, 1000);
 
 });
