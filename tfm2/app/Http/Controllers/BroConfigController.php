@@ -61,7 +61,7 @@ class BroConfigController extends Controller
    */
   public function getUpdateTime(){
 
-    $updateTime = shell_exec('ls -al /opt/critical-stack/frameworks/intel/ | awk 'END {print $6,$7,$8}'');
+    $updateTime = shell_exec('ls -al /opt/critical-stack/frameworks/intel/ | awk \'END {print $6,$7,$8}\'');
     return (string)$updateTime;
 
   }
@@ -72,7 +72,7 @@ class BroConfigController extends Controller
    */
   public function getBroStatus(){
 
-    $bro_status = shell_exec('sudo broctl status | awk 'END {print $4}'');
+    $bro_status = shell_exec('sudo broctl status | awk \'END {print $4}\'');
     return (string)$bro_status;
 
   }
